@@ -13,10 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-        canvasarea.cpp \
-        configdialog.cpp
+        MainWindow.cpp \
+        CanvasArea.cpp \
+        ConfigDialog.cpp \
+        Pattern.cpp
 
-HEADERS += mainwindow.h \
-        canvasarea.h \
-        configdialog.h
+HEADERS += MainWindow.h \
+        CanvasArea.h \
+        ConfigDialog.h \
+        Pattern.h
