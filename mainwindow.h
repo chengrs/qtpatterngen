@@ -23,7 +23,7 @@ private:
     QAction *aboutAct;
     QAction *aboutQtAct;
 
-    CanvasArea::Colors pattern;
+    Colors::Color pattern;
 
     void createActions();
     void createMenus();

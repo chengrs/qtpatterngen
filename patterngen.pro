@@ -24,4 +24,5 @@ HEADERS += MainWindow.h \
         Pattern.h \
         PatternColor.h \
         PatternHBar.h \
-        PatternVBar.h
+        PatternVBar.h \
+    Colors.h

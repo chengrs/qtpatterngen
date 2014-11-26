@@ -78,55 +78,55 @@ void MainWindow::setGrayLevel(int value)
 void MainWindow::clickK()
 {
     qDebug() << "clickK()";
-    pattern = CanvasArea::K;
+    pattern = Colors::K;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickR()
 {
     qDebug() << "clickR()";
-    pattern = CanvasArea::R;
+    pattern = Colors::R;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickG()
 {
     qDebug() << "clickG()";
-    pattern = CanvasArea::G;
+    pattern = Colors::G;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickY()
 {
     qDebug() << "clickY()";
-    pattern = CanvasArea::Y;
+    pattern = Colors::Y;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickB()
 {
     qDebug() << "clickB()";
-    pattern = CanvasArea::B;
+    pattern = Colors::B;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickM()
 {
     qDebug() << "clickM()";
-    pattern = CanvasArea::M;
+    pattern = Colors::M;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickA()
 {
     qDebug() << "clickA()";
-    pattern = CanvasArea::A;
+    pattern = Colors::A;
     canvasArea->setFgColor(pattern);
 }
 
 void MainWindow::clickW()
 {
     qDebug() << "clickW()";
-    pattern = CanvasArea::W;
+    pattern = Colors::W;
     canvasArea->setFgColor(pattern);
 }

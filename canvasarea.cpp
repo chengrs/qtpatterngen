@@ -4,8 +4,8 @@ CanvasArea::CanvasArea(QWidget *parent)
     : QWidget(parent)
 {
     m_grayLevel = 255;
-    m_fgColor = K;
-    m_bgColor = K;
+    m_fgColor = Colors::K;
+    m_bgColor = Colors::K;
 //    m_pattern = new Pattern();
 
 //    QRect rect = QApplication::desktop()->screenGeometry();
@@ -31,28 +31,28 @@ void CanvasArea::paintEvent(QPaintEvent *event)
     // TODO prevent memory leak
     QBrush *brush;
     switch (m_fgColor) {
-    case(K) :
+    case(Colors::K) :
         brush = new QBrush(QColor(0, 0, 0, 255));
         break;
-    case(R):
+    case(Colors::R):
         brush = new QBrush(QColor(m_grayLevel, 0, 0, 255));
         break;
-    case(G):
+    case(Colors::G):
         brush = new QBrush(QColor(0, m_grayLevel, 0, 255));
         break;
-    case(Y):
+    case(Colors::Y):
         brush = new QBrush(QColor(m_grayLevel, m_grayLevel, 0, 255));
         break;
-    case(B):
+    case(Colors::B):
         brush = new QBrush(QColor(0, 0, m_grayLevel, 255));
         break;
-    case(M):
+    case(Colors::M):
         brush = new QBrush(QColor(m_grayLevel, 0, m_grayLevel, 255));
         break;
-    case(A):
+    case(Colors::A):
         brush = new QBrush(QColor(0, m_grayLevel, m_grayLevel, 255));
         break;
-    case(W):
+    case(Colors::W):
     default:
         brush = new QBrush(QColor(m_grayLevel, m_grayLevel, m_grayLevel, 255));
         break;
@@ -74,7 +74,7 @@ void CanvasArea::setGrayLevel(int value)
     update(rect);
 }
 
-void CanvasArea::setFgColor(const Colors &c)
+void CanvasArea::setFgColor(const Colors::Color &c)
 {
     m_fgColor = c;
 
@@ -83,7 +83,7 @@ void CanvasArea::setFgColor(const Colors &c)
     update(rect);
 }
 
-void CanvasArea::setBgColor(const Colors &c)
+void CanvasArea::setBgColor(const Colors::Color &c)
 {
     m_bgColor = c;
 }

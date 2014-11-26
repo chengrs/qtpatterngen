@@ -2,6 +2,7 @@
 #define CANVASAREA_H
 
 #include <QtWidgets>
+#include "Colors.h"
 #include "Pattern.h"
 
 class CanvasArea : public QWidget
@@ -12,20 +13,20 @@ public:
     CanvasArea(QWidget *parent = 0);
     ~CanvasArea();
 
-    enum Colors {
-        K = 0,
-        R,
-        G,
-        Y,
-        B,
-        M,
-        A,
-        W
-    };
+//    enum Colors {
+//        K = 0,
+//        R,
+//        G,
+//        Y,
+//        B,
+//        M,
+//        A,
+//        W
+//    };
 
     void setGrayLevel(int);
-    void setFgColor(const Colors &);
-    void setBgColor(const Colors &);
+    void setFgColor(const Colors::Color &);
+    void setBgColor(const Colors::Color &);
 
 //    void drawColor(Patterns)
 
@@ -37,8 +38,8 @@ protected:
 
 private:
     int m_grayLevel;
-    Colors m_fgColor;
-    Colors m_bgColor;
+    Colors::Color m_fgColor;
+    Colors::Color m_bgColor;
 //    Pattern m_pattern;
 };
 
