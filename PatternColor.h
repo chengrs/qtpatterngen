@@ -1,0 +1,4 @@
+#ifndef PATTERNCOLOR_H
+#define PATTERNCOLOR_H
+
+#endif // PATTERNCOLOR_H

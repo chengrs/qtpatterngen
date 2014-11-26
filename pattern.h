@@ -1,7 +1,7 @@
 #ifndef PATTERN_H
 #define PATTERN_H
 
-#include "canvasarea.h"
+#include "CanvasArea.h"
 
 QT_BEGIN_NAMESPACE
 class QBrush;
@@ -12,17 +12,14 @@ class CanvasArea;
 class Pattern
 {
 public:
-    Pattern(const CanvasArea::Colors &, const CanvasArea::Colors &);
+    Pattern();
     ~Pattern();
 
-protected:
-    // TODO send system painter from canvasarea if necessary
-    void drawPattern();
+//    void drawPattern(CanvasArea::Colors &, int);
 
-private:
-    int m_grayLevel;
-    CanvasArea::Colors m_fgColor;
-    CanvasArea::Colors m_bgColor;
+//protected:
+
+//private:
 };
 
 #endif // PATTERN_H

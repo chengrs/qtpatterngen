@@ -1,4 +1,5 @@
-#include "configdialog.h"
+#include "ConfigDialog.h"
+#include "MainWindow.h"
 
 ConfigDialog::ConfigDialog(QWidget *parent)
     : QDialog(parent)
@@ -9,7 +10,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
 
     grayLevelSlider = new QSlider(Qt::Horizontal);
     grayLevelSlider->setRange(0, 255);
-//    connect(grayLevelSlider, SIGNAL(valueChanged(int)), canvasArea, SLOT(setGrayLevel(int)));
+    connect(grayLevelSlider, SIGNAL(valueChanged(int)), parent, SLOT(setGrayLevel(int)));
 
     grayLevelSpinBox = new QSpinBox();
     grayLevelSpinBox->setRange(0, 255);
@@ -21,35 +22,35 @@ ConfigDialog::ConfigDialog(QWidget *parent)
 
     kButton = new QPushButton(tr("&K"));
 //    kButton->setDefault(true);
-    connect(kButton, SIGNAL(clicked()), this, SLOT(clickK()));
+    connect(kButton, SIGNAL(clicked()), parent, SLOT(clickK()));
 
     rButton = new QPushButton(tr("&R"));
     rButton->setAutoDefault(false);
-    connect(rButton, SIGNAL(clicked()), this, SLOT(clickR()));
+    connect(rButton, SIGNAL(clicked()), parent, SLOT(clickR()));
 
     gButton = new QPushButton(tr("&G"));
     gButton->setAutoDefault(false);
-    connect(gButton, SIGNAL(clicked()), this, SLOT(clickG()));
+    connect(gButton, SIGNAL(clicked()), parent, SLOT(clickG()));
 
     yButton = new QPushButton(tr("&Y"));
     yButton->setAutoDefault(false);
-    connect(yButton, SIGNAL(clicked()), this, SLOT(clickY()));
+    connect(yButton, SIGNAL(clicked()), parent, SLOT(clickY()));
 
     bButton = new QPushButton(tr("&B"));
     bButton->setAutoDefault(false);
-    connect(bButton, SIGNAL(clicked()), this, SLOT(clickB()));
+    connect(bButton, SIGNAL(clicked()), parent, SLOT(clickB()));
 
     mButton = new QPushButton(tr("&M"));
     mButton->setAutoDefault(false);
-    connect(mButton, SIGNAL(clicked()), this, SLOT(clickM()));
+    connect(mButton, SIGNAL(clicked()), parent, SLOT(clickM()));
 
     aButton = new QPushButton(tr("&A"));
     aButton->setAutoDefault(false);
-    connect(aButton, SIGNAL(clicked()), this, SLOT(clickA()));
+    connect(aButton, SIGNAL(clicked()), parent, SLOT(clickA()));
 
     wButton = new QPushButton(tr("&W"));
     wButton->setAutoDefault(false);
-    connect(wButton, SIGNAL(clicked()), this, SLOT(clickW()));
+    connect(wButton, SIGNAL(clicked()), parent, SLOT(clickW()));
 
 
     colorButtonBox = new QDialogButtonBox(Qt::Horizontal);

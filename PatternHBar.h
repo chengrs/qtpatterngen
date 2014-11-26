@@ -1,0 +1,4 @@
+#ifndef PATTERNHBAR_H
+#define PATTERNHBAR_H
+
+#endif // PATTERNHBAR_H

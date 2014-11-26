@@ -2,6 +2,7 @@
 #define CANVASAREA_H
 
 #include <QtWidgets>
+#include "Pattern.h"
 
 class CanvasArea : public QWidget
 {
@@ -38,6 +39,7 @@ private:
     int m_grayLevel;
     Colors m_fgColor;
     Colors m_bgColor;
+//    Pattern m_pattern;
 };
 
 #endif // CANVASAREA_H

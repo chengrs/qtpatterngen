@@ -1,11 +1,12 @@
-#include "canvasarea.h"
+#include "CanvasArea.h"
 
 CanvasArea::CanvasArea(QWidget *parent)
     : QWidget(parent)
 {
-    m_grayLevel = 0;
+    m_grayLevel = 255;
     m_fgColor = K;
     m_bgColor = K;
+//    m_pattern = new Pattern();
 
 //    QRect rect = QApplication::desktop()->screenGeometry();
     QRect rect(0, 0, 1920, 1080);
@@ -34,26 +35,26 @@ void CanvasArea::paintEvent(QPaintEvent *event)
         brush = new QBrush(QColor(0, 0, 0, 255));
         break;
     case(R):
-//        brush = new QBrush(QColor(255, 0, 0, 255));
         brush = new QBrush(QColor(m_grayLevel, 0, 0, 255));
         break;
     case(G):
-        brush = new QBrush(QColor(0, 255, 0, 255));
+        brush = new QBrush(QColor(0, m_grayLevel, 0, 255));
         break;
     case(Y):
-        brush = new QBrush(QColor(255, 255, 0, 255));
+        brush = new QBrush(QColor(m_grayLevel, m_grayLevel, 0, 255));
         break;
     case(B):
-        brush = new QBrush(QColor(0, 0, 255, 255));
+        brush = new QBrush(QColor(0, 0, m_grayLevel, 255));
         break;
     case(M):
-        brush = new QBrush(QColor(255, 0, 255, 255));
+        brush = new QBrush(QColor(m_grayLevel, 0, m_grayLevel, 255));
         break;
     case(A):
-        brush = new QBrush(QColor(0, 255, 255, 255));
+        brush = new QBrush(QColor(0, m_grayLevel, m_grayLevel, 255));
         break;
     case(W):
-        brush = new QBrush(QColor(255, 255, 255, 255));
+    default:
+        brush = new QBrush(QColor(m_grayLevel, m_grayLevel, m_grayLevel, 255));
         break;
     }
 
@@ -76,6 +77,10 @@ void CanvasArea::setGrayLevel(int value)
 void CanvasArea::setFgColor(const Colors &c)
 {
     m_fgColor = c;
+
+    // TODO move to constructor
+    QRect rect(0, 0, 1920, 1080);
+    update(rect);
 }
 
 void CanvasArea::setBgColor(const Colors &c)

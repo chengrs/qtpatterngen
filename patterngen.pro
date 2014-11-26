@@ -21,4 +21,7 @@ SOURCES += main.cpp\
 HEADERS += MainWindow.h \
         CanvasArea.h \
         ConfigDialog.h \
-        Pattern.h
+        Pattern.h \
+        PatternColor.h \
+        PatternHBar.h \
+        PatternVBar.h
