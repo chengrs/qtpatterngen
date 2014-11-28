@@ -16,7 +16,7 @@ public:
     Pattern();
     ~Pattern();
 
-    void drawPattern(Colors::Color &, int);
+    virtual void drawPattern(QPainter &, Colors::Color &, int) = 0;
 };
 
 #endif // PATTERN_H

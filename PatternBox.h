@@ -1,5 +1,5 @@
-#ifndef PATTERNCOLOR_H
-#define PATTERNCOLOR_H
+#ifndef PATTERNBOX_H
+#define PATTERNBOX_H
 
 #include <QtWidgets>
 #include "Pattern.h"
@@ -11,13 +11,13 @@ QT_END_NAMESPACE
 
 class CanvasArea;
 
-class PatternColor : public Pattern
+class PatternBox : public Pattern
 {
 public:
-    PatternColor();
-    ~PatternColor();
+    PatternBox();
+    ~PatternBox();
 
     void drawPattern(QPainter &, Colors::Color &, int);
 };
 
-#endif // PATTERNCOLOR_H
+#endif // PATTERNBOX_H

@@ -4,6 +4,8 @@
 #include <QtWidgets>
 #include "Colors.h"
 #include "Pattern.h"
+#include "PatternBox.h"
+#include "PatternColor.h"
 
 class CanvasArea : public QWidget
 {
@@ -35,12 +37,13 @@ public slots:
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void drawShapes(QPainter *painter, int sx, int sy);
 
 private:
     int m_grayLevel;
     Colors::Color m_fgColor;
     Colors::Color m_bgColor;
-//    Pattern m_pattern;
+    Pattern *m_pattern;
 };
 
 #endif // CANVASAREA_H
