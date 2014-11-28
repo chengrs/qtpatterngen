@@ -18,7 +18,7 @@ void PatternBox::drawPattern(QPainter &painter, Colors::Color &color, int grayLe
 
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setPen(Qt::NoPen);
-    QBrush *brush = new QBrush(QColor(123, 123, 0, 255));
+    QBrush *brush = new QBrush(QColor(grayLevel, grayLevel, 0, 255));
     painter.setBrush(*brush);
     painter.drawRect(rect2);
 

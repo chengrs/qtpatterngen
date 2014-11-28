@@ -47,13 +47,8 @@ private:
     QPushButton *fgButton;
     QPushButton *bgButton;
 
-    QPushButton *tlButton;
-    QPushButton *ctrButton;
-    QPushButton *hideButton;
-
     QDialogButtonBox *colorButtonBox;
     QDialogButtonBox *gButtonBox;
-    QDialogButtonBox *otherButtonBox;
 };
 
 #endif // CONFIGDIALOG_H

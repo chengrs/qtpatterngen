@@ -22,6 +22,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
 
     kButton = new QPushButton(tr("&K"));
 //    kButton->setDefault(true);
+    kButton->setAutoDefault(false);
     connect(kButton, SIGNAL(clicked()), parent, SLOT(clickK()));
 
     rButton = new QPushButton(tr("&R"));
@@ -75,23 +76,6 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     gButtonBox->addButton(fgButton, QDialogButtonBox::ActionRole);
     gButtonBox->addButton(bgButton, QDialogButtonBox::ActionRole);
 
-    tlButton = new QPushButton(tr("&TL"));
-    tlButton->setCheckable(true);
-    tlButton->setAutoDefault(false);
-
-    ctrButton = new QPushButton(tr("&CTR"));
-    ctrButton->setCheckable(true);
-    ctrButton->setAutoDefault(false);
-
-    hideButton = new QPushButton(tr("&HIDE"));
-    hideButton->setCheckable(true);
-    hideButton->setAutoDefault(false);
-
-    otherButtonBox = new QDialogButtonBox(Qt::Horizontal);
-    otherButtonBox->addButton(tlButton, QDialogButtonBox::ActionRole);
-    otherButtonBox->addButton(ctrButton, QDialogButtonBox::ActionRole);
-    otherButtonBox->addButton(hideButton, QDialogButtonBox::ActionRole);
-
     QVBoxLayout *firstLayerLayout = new QVBoxLayout;
     firstLayerLayout->addWidget(grayLevelSpinBox);
     firstLayerLayout->addWidget(grayLevelSlider);
@@ -100,13 +84,9 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     QHBoxLayout *secondLayerLayout = new QHBoxLayout;
     secondLayerLayout->addWidget(gButtonBox);
 
-    QHBoxLayout *thirdLayerLayout = new QHBoxLayout;
-    thirdLayerLayout->addWidget(otherButtonBox);
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstLayerLayout);
     mainLayout->addLayout(secondLayerLayout);
-    mainLayout->addLayout(thirdLayerLayout);
 
     setLayout(mainLayout);
 }

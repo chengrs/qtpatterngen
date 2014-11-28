@@ -37,7 +37,6 @@ public slots:
 
 protected:
     void paintEvent(QPaintEvent *event);
-    void drawShapes(QPainter *painter, int sx, int sy);
 
 private:
     int m_grayLevel;
