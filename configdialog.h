@@ -25,6 +25,7 @@ private:
 // test
     QWidget *mainWidget;
 // test
+    QSignalMapper *m_colorMapper;
 
 // settings
     QLabel *hintLabel;

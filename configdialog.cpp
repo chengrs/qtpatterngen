@@ -20,39 +20,50 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     // set initial value
     grayLevelSlider->setValue(255);
 
+    m_colorMapper = new QSignalMapper(this);
+
     kButton = new QPushButton(tr("&K"));
-//    kButton->setDefault(true);
     kButton->setAutoDefault(false);
-    connect(kButton, SIGNAL(clicked()), parent, SLOT(clickK()));
+    connect(kButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     rButton = new QPushButton(tr("&R"));
     rButton->setAutoDefault(false);
-    connect(rButton, SIGNAL(clicked()), parent, SLOT(clickR()));
+    connect(rButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     gButton = new QPushButton(tr("&G"));
     gButton->setAutoDefault(false);
-    connect(gButton, SIGNAL(clicked()), parent, SLOT(clickG()));
+    connect(gButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     yButton = new QPushButton(tr("&Y"));
     yButton->setAutoDefault(false);
-    connect(yButton, SIGNAL(clicked()), parent, SLOT(clickY()));
+    connect(yButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     bButton = new QPushButton(tr("&B"));
     bButton->setAutoDefault(false);
-    connect(bButton, SIGNAL(clicked()), parent, SLOT(clickB()));
+    connect(bButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     mButton = new QPushButton(tr("&M"));
     mButton->setAutoDefault(false);
-    connect(mButton, SIGNAL(clicked()), parent, SLOT(clickM()));
+    connect(mButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     aButton = new QPushButton(tr("&A"));
     aButton->setAutoDefault(false);
-    connect(aButton, SIGNAL(clicked()), parent, SLOT(clickA()));
+    connect(aButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
     wButton = new QPushButton(tr("&W"));
     wButton->setAutoDefault(false);
-    connect(wButton, SIGNAL(clicked()), parent, SLOT(clickW()));
+    connect(wButton, SIGNAL(clicked()), m_colorMapper, SLOT(map()));
 
+    m_colorMapper->setMapping(kButton, Colors::K);
+    m_colorMapper->setMapping(rButton, Colors::R);
+    m_colorMapper->setMapping(gButton, Colors::G);
+    m_colorMapper->setMapping(yButton, Colors::Y);
+    m_colorMapper->setMapping(bButton, Colors::B);
+    m_colorMapper->setMapping(mButton, Colors::M);
+    m_colorMapper->setMapping(aButton, Colors::A);
+    m_colorMapper->setMapping(wButton, Colors::W);
+
+    connect(m_colorMapper, SIGNAL(mapped(int)), parent, SLOT(changeColor(int)));
 
     colorButtonBox = new QDialogButtonBox(Qt::Horizontal);
     colorButtonBox->addButton(kButton, QDialogButtonBox::ActionRole);

@@ -16,6 +16,21 @@ public:
     Pattern();
     ~Pattern();
 
+    enum Patterns {
+        Color = 0,
+        HBar,
+        VBar,
+        Checker,
+        Window121,
+        Window111,
+        WindowHalf,
+        Icons,
+        HScripe,
+        VStripe,
+        SubChecker,
+        SubVStripe
+    };
+
     virtual void drawPattern(QPainter &, Colors::Color &, int) = 0;
 };
 

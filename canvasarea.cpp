@@ -6,8 +6,8 @@ CanvasArea::CanvasArea(QWidget *parent)
     m_grayLevel = 255;
     m_fgColor = Colors::K;
     m_bgColor = Colors::K;
-//    m_pattern = new PatternColor();
-    m_pattern = new PatternBox();
+    m_pattern = new PatternColor();
+//    m_pattern = new PatternBox();
 
 //    QRect rect = QApplication::desktop()->screenGeometry();
     QRect rect(0, 0, 1920, 1080);
