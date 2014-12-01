@@ -9,6 +9,8 @@ CanvasArea::CanvasArea(QWidget *parent)
     m_pattern = new PatternColor();
 //    m_pattern = new PatternBox();
 
+    m_ground = ForeGround;
+
 //    QRect rect = QApplication::desktop()->screenGeometry();
     QRect rect(0, 0, 1920, 1080);
     update(rect);
@@ -50,4 +52,19 @@ void CanvasArea::setFgColor(const Colors::Color &c)
 void CanvasArea::setBgColor(const Colors::Color &c)
 {
     m_bgColor = c;
+}
+
+CanvasArea::PaintingLevel CanvasArea::getCurrentGround()
+{
+    return m_ground;
+}
+
+void CanvasArea::setCurrentGround(int ground)
+{
+    qDebug() << "setCurrentGround()";
+    if (ground == CanvasArea::BackGround) {
+        m_ground = BackGround;
+    } else {
+        m_ground = ForeGround;
+    }
 }

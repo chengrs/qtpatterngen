@@ -7,14 +7,15 @@ MainWindow::MainWindow(QWidget *parent)
     canvasArea = new CanvasArea;
     setCentralWidget(canvasArea);
 
-    m_signalMapper = new QSignalMapper(this);
+    m_patternMapper = new QSignalMapper(this);
 
     createActions();
     createMenus();
 
-//    qDebug() << Pattern::Color;
-    m_signalMapper->setMapping(colorAct, Pattern::Color);
-    connect(m_signalMapper, SIGNAL(mapped(int)), this, SLOT(changePattern(int)));
+    m_patternMapper->setMapping(colorAct, Pattern::Color);
+    m_patternMapper->setMapping(hbarAct, Pattern::HBar);
+    m_patternMapper->setMapping(vbarAct, Pattern::VBar);
+    connect(m_patternMapper, SIGNAL(mapped(int)), this, SLOT(changePattern(int)));
 }
 
 MainWindow::~MainWindow()
@@ -38,9 +39,15 @@ void MainWindow::createActions()
     exitAct->setShortcut(tr("Ctrl+Q"));
     connect(exitAct, SIGNAL(triggered()), this, SLOT(close()));
 
+    // init pattern actions
     colorAct = new QAction(tr("&Color"), this);
-//    exitAct->setShortcut(tr("Ctrl+Q"));
-    connect(colorAct, SIGNAL(triggered()), m_signalMapper, SLOT(map()));
+    connect(colorAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    hbarAct = new QAction(tr("&HBar"), this);
+    connect(hbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    vbarAct = new QAction(tr("&VBar"), this);
+    connect(vbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -85,6 +92,8 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(aboutAct);
     menu.addSeparator();
     menu.addAction(colorAct);
+    menu.addAction(hbarAct);
+    menu.addAction(vbarAct);
     menu.addAction(testAct);
     menu.addSeparator();
     menu.addAction(exitAct);
@@ -99,11 +108,22 @@ void MainWindow::setGrayLevel(int value)
 void MainWindow::changePattern(int pattern)
 {
     qDebug() << "pattern = " << pattern;
+
+    switch (pattern) {
+    case Pattern::HBar:
+        break;
+    case Pattern::VBar:
+        break;
+    case Pattern::Color:
+    default:
+        break;
+    }
 }
 
 void MainWindow::changeColor(int color)
 {
     qDebug() << "color = " << color;
+
     switch (color) {
     case Colors::K:
         pattern = Colors::K;
@@ -127,8 +147,8 @@ void MainWindow::changeColor(int color)
         pattern = Colors::A;
         break;
     case Colors::W:
-        pattern = Colors::W;
     default:
+        pattern = Colors::W;
         break;
     }
 

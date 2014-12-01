@@ -13,12 +13,13 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    CanvasArea *canvasArea;
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
 
 private:
-    CanvasArea *canvasArea;
-    QSignalMapper *m_signalMapper;
+    QSignalMapper *m_patternMapper;
 
     QMenu *optionMenu;
     QMenu *helpMenu;

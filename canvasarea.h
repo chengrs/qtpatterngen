@@ -15,25 +15,21 @@ public:
     CanvasArea(QWidget *parent = 0);
     ~CanvasArea();
 
-//    enum Colors {
-//        K = 0,
-//        R,
-//        G,
-//        Y,
-//        B,
-//        M,
-//        A,
-//        W
-//    };
+    enum PaintingLevel {
+        ForeGround = 0,
+        BackGround
+    };
 
     void setGrayLevel(int);
     void setFgColor(const Colors::Color &);
     void setBgColor(const Colors::Color &);
 
+    PaintingLevel getCurrentGround();
 //    void drawColor(Patterns)
 
 public slots:
 //    void setGrayLevel(int);
+    void setCurrentGround(int);
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -43,6 +39,8 @@ private:
     Colors::Color m_fgColor;
     Colors::Color m_bgColor;
     Pattern *m_pattern;
+
+    PaintingLevel m_ground;
 };
 
 #endif // CANVASAREA_H

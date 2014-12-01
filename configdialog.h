@@ -26,6 +26,7 @@ private:
     QWidget *mainWidget;
 // test
     QSignalMapper *m_colorMapper;
+    QSignalMapper *m_groundMapper;
 
 // settings
     QLabel *hintLabel;
@@ -47,6 +48,10 @@ private:
 
     QPushButton *fgButton;
     QPushButton *bgButton;
+
+    QGroupBox *groupBox;
+    QRadioButton *fgRadio;
+    QRadioButton *bgRadio;
 
     QDialogButtonBox *colorButtonBox;
     QDialogButtonBox *gButtonBox;

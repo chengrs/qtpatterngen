@@ -4,6 +4,8 @@
 ConfigDialog::ConfigDialog(QWidget *parent)
     : QDialog(parent)
 {
+//    qDebug() << "constructor";
+
     hintLabel = new QLabel(tr("← Cursor →"));
     zeroLabel = new QLabel(tr("0"));
     sixThreeLabel = new QLabel(tr("63"));
@@ -74,7 +76,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     colorButtonBox->addButton(mButton, QDialogButtonBox::ActionRole);
     colorButtonBox->addButton(aButton, QDialogButtonBox::ActionRole);
     colorButtonBox->addButton(wButton, QDialogButtonBox::ActionRole);
-
+/*
     fgButton = new QPushButton(tr("&FG"));
     fgButton->setCheckable(true);
     fgButton->setAutoDefault(false);
@@ -82,22 +84,48 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     bgButton = new QPushButton(tr("&BG"));
     bgButton->setCheckable(true);
     bgButton->setAutoDefault(false);
+*/
+    groupBox = new QGroupBox(tr("Foreground or Background"));
 
+    m_groundMapper = new QSignalMapper(this);
+
+    fgRadio = new QRadioButton(tr("&FG"));
+    fgRadio->setCheckable(true);
+    connect(fgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
+
+    bgRadio = new QRadioButton(tr("&BG"));
+    bgRadio->setCheckable(true);
+    connect(bgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
+
+    m_groundMapper->setMapping(fgRadio, CanvasArea::ForeGround);
+    m_groundMapper->setMapping(bgRadio, CanvasArea::BackGround);
+    connect(m_groundMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->canvasArea, SLOT(setCurrentGround(int)));
+
+    if (((MainWindow *) parent)->canvasArea->getCurrentGround() == CanvasArea::BackGround) {
+        bgRadio->setChecked(true);
+    } else {
+        fgRadio->setChecked(true);
+    }
+/*
     gButtonBox = new QDialogButtonBox(Qt::Horizontal);
     gButtonBox->addButton(fgButton, QDialogButtonBox::ActionRole);
     gButtonBox->addButton(bgButton, QDialogButtonBox::ActionRole);
-
+*/
     QVBoxLayout *firstLayerLayout = new QVBoxLayout;
     firstLayerLayout->addWidget(grayLevelSpinBox);
     firstLayerLayout->addWidget(grayLevelSlider);
     firstLayerLayout->addWidget(colorButtonBox);
 
     QHBoxLayout *secondLayerLayout = new QHBoxLayout;
-    secondLayerLayout->addWidget(gButtonBox);
+//    secondLayerLayout->addWidget(gButtonBox);
+    secondLayerLayout->addWidget(fgRadio);
+    secondLayerLayout->addWidget(bgRadio);
+    groupBox->setLayout(secondLayerLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstLayerLayout);
     mainLayout->addLayout(secondLayerLayout);
+    mainLayout->addWidget(groupBox);
 
     setLayout(mainLayout);
 }
