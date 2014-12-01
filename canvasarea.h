@@ -15,16 +15,11 @@ public:
     CanvasArea(QWidget *parent = 0);
     ~CanvasArea();
 
-    enum PaintingLevel {
-        ForeGround = 0,
-        BackGround
-    };
-
     void setGrayLevel(int);
     void setFgColor(const Colors::Color &);
     void setBgColor(const Colors::Color &);
 
-    PaintingLevel getCurrentGround();
+    Pattern::PaintingLevel getCurrentGround();
 //    void drawColor(Patterns)
 
 public slots:
@@ -40,7 +35,7 @@ private:
     Colors::Color m_bgColor;
     Pattern *m_pattern;
 
-    PaintingLevel m_ground;
+    Pattern::PaintingLevel m_ground;
 
 private slots:
     void changeColor(int);

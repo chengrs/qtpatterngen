@@ -17,7 +17,20 @@ public:
     PatternBox();
     ~PatternBox();
 
-    void drawPattern(QPainter &, Colors::Color &, int);
+    void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
+
+protected:
+    Colors::Color m_fgColor;
+    Colors::Color m_bgColor;
+
+    int m_fgGrayLevel;
+    int m_bgGrayLevel;
+
+    int m_innerHeight;
+    int m_innerWidth;
+
+    int m_outerHeight;
+    int m_outerWidth;
 };
 
 #endif // PATTERNBOX_H

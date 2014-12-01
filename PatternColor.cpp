@@ -11,7 +11,7 @@ PatternColor::~PatternColor()
 
 }
 
-void PatternColor::drawPattern(QPainter &painter, Colors::Color &color, int grayLevel)
+void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground, Colors::Color &color, int grayLevel)
 {
 //    qDebeg() << "drawPattern()";
     QRect rect(0, 0, 1920, 1080);

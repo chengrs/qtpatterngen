@@ -9,7 +9,7 @@ CanvasArea::CanvasArea(QWidget *parent)
 //    m_pattern = new PatternColor();
     m_pattern = new PatternBox();
 
-    m_ground = ForeGround;
+    m_ground = Pattern::ForeGround;
 
 //    QRect rect = QApplication::desktop()->screenGeometry();
     QRect rect(0, 0, 1920, 1080);
@@ -27,7 +27,7 @@ void CanvasArea::paintEvent(QPaintEvent *)
 
     QPainter painter(this);
 
-    m_pattern->drawPattern(painter, m_fgColor, m_grayLevel);
+    m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
 }
 
 void CanvasArea::setGrayLevel(int value)
@@ -54,7 +54,7 @@ void CanvasArea::setBgColor(const Colors::Color &c)
     m_bgColor = c;
 }
 
-CanvasArea::PaintingLevel CanvasArea::getCurrentGround()
+Pattern::PaintingLevel CanvasArea::getCurrentGround()
 {
     return m_ground;
 }
@@ -92,7 +92,7 @@ void CanvasArea::changeColor(int color)
         break;
     }
 
-    if (m_ground == BackGround) {
+    if (m_ground == Pattern::BackGround) {
         setBgColor(c);
     } else {
         setFgColor(c);
@@ -102,9 +102,10 @@ void CanvasArea::changeColor(int color)
 void CanvasArea::setCurrentGround(int ground)
 {
     qDebug() << "setCurrentGround()";
-    if (ground == CanvasArea::BackGround) {
-        m_ground = BackGround;
+    // XXX ugly
+    if (ground == Pattern::BackGround) {
+        m_ground = Pattern::BackGround;
     } else {
-        m_ground = ForeGround;
+        m_ground = Pattern::ForeGround;
     }
 }

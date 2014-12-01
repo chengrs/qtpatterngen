@@ -97,11 +97,11 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     bgRadio->setCheckable(true);
     connect(bgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
 
-    m_groundMapper->setMapping(fgRadio, CanvasArea::ForeGround);
-    m_groundMapper->setMapping(bgRadio, CanvasArea::BackGround);
+    m_groundMapper->setMapping(fgRadio, Pattern::ForeGround);
+    m_groundMapper->setMapping(bgRadio, Pattern::BackGround);
     connect(m_groundMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->canvasArea, SLOT(setCurrentGround(int)));
 
-    if (((MainWindow *) parent)->canvasArea->getCurrentGround() == CanvasArea::BackGround) {
+    if (((MainWindow *) parent)->canvasArea->getCurrentGround() == Pattern::BackGround) {
         bgRadio->setChecked(true);
     } else {
         fgRadio->setChecked(true);

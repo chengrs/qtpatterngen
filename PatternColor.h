@@ -17,7 +17,7 @@ public:
     PatternColor();
     ~PatternColor();
 
-    void drawPattern(QPainter &, Colors::Color &, int);
+    void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
 };
 
 #endif // PATTERNCOLOR_H

@@ -31,7 +31,12 @@ public:
         SubVStripe
     };
 
-    virtual void drawPattern(QPainter &, Colors::Color &, int) = 0;
+    enum PaintingLevel {
+        ForeGround = 0,
+        BackGround
+    };
+
+    virtual void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int) = 0;
 };
 
 #endif // PATTERN_H
