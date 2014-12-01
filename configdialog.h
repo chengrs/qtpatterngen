@@ -21,7 +21,6 @@ public:
     ~ConfigDialog();
 
 private:
-
 // test
     QWidget *mainWidget;
 // test

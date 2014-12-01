@@ -65,7 +65,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     m_colorMapper->setMapping(aButton, Colors::A);
     m_colorMapper->setMapping(wButton, Colors::W);
 
-    connect(m_colorMapper, SIGNAL(mapped(int)), parent, SLOT(changeColor(int)));
+    connect(m_colorMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->canvasArea, SLOT(changeColor(int)));
 
     colorButtonBox = new QDialogButtonBox(Qt::Horizontal);
     colorButtonBox->addButton(kButton, QDialogButtonBox::ActionRole);

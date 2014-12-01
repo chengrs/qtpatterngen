@@ -41,6 +41,9 @@ private:
     Pattern *m_pattern;
 
     PaintingLevel m_ground;
+
+private slots:
+    void changeColor(int);
 };
 
 #endif // CANVASAREA_H

@@ -119,38 +119,3 @@ void MainWindow::changePattern(int pattern)
         break;
     }
 }
-
-void MainWindow::changeColor(int color)
-{
-    qDebug() << "color = " << color;
-
-    switch (color) {
-    case Colors::K:
-        pattern = Colors::K;
-        break;
-    case Colors::R:
-        pattern = Colors::R;
-        break;
-    case Colors::G:
-        pattern = Colors::G;
-        break;
-    case Colors::Y:
-        pattern = Colors::Y;
-        break;
-    case Colors::B:
-        pattern = Colors::B;
-        break;
-    case Colors::M:
-        pattern = Colors::M;
-        break;
-    case Colors::A:
-        pattern = Colors::A;
-        break;
-    case Colors::W:
-    default:
-        pattern = Colors::W;
-        break;
-    }
-
-    canvasArea->setFgColor(pattern);
-}

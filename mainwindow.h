@@ -55,7 +55,6 @@ private slots:
 
     void setGrayLevel(int);
     void changePattern(int);
-    void changeColor(int);
 };
 
 #endif // MAINWINDOW_H

@@ -6,8 +6,8 @@ CanvasArea::CanvasArea(QWidget *parent)
     m_grayLevel = 255;
     m_fgColor = Colors::K;
     m_bgColor = Colors::K;
-    m_pattern = new PatternColor();
-//    m_pattern = new PatternBox();
+//    m_pattern = new PatternColor();
+    m_pattern = new PatternBox();
 
     m_ground = ForeGround;
 
@@ -57,6 +57,46 @@ void CanvasArea::setBgColor(const Colors::Color &c)
 CanvasArea::PaintingLevel CanvasArea::getCurrentGround()
 {
     return m_ground;
+}
+
+void CanvasArea::changeColor(int color)
+{
+    qDebug() << "color = " << color;
+    Colors::Color c;
+
+    switch (color) {
+    case Colors::K:
+        c = Colors::K;
+        break;
+    case Colors::R:
+        c = Colors::R;
+        break;
+    case Colors::G:
+        c = Colors::G;
+        break;
+    case Colors::Y:
+        c = Colors::Y;
+        break;
+    case Colors::B:
+        c = Colors::B;
+        break;
+    case Colors::M:
+        c = Colors::M;
+        break;
+    case Colors::A:
+        c = Colors::A;
+        break;
+    case Colors::W:
+    default:
+        c = Colors::W;
+        break;
+    }
+
+    if (m_ground == BackGround) {
+        setBgColor(c);
+    } else {
+        setFgColor(c);
+    }
 }
 
 void CanvasArea::setCurrentGround(int ground)
