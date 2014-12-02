@@ -99,6 +99,59 @@ void CanvasArea::changeColor(int color)
     }
 }
 
+void CanvasArea::changePattern(int pattern)
+{
+    qDebug() << "changePattern()";
+
+//    delete m_pattern;
+
+    switch (pattern) {
+    case Pattern::HBar:
+        qDebug() << "HBar";
+        break;
+    case Pattern::VBar:
+        qDebug() << "VBar";
+        break;
+    case Pattern::Checker:
+        qDebug() << "Checker";
+        break;
+    case Pattern::Window121:
+        qDebug() << "Window121";
+        m_pattern = new PatternBox();
+        break;
+    case Pattern::Window111:
+        qDebug() << "Window111";
+        break;
+    case Pattern::WindowHalf:
+        qDebug() << "WindowHalf";
+        break;
+    case Pattern::Icons:
+        qDebug() << "Icons";
+        break;
+    case Pattern::HScripe:
+        qDebug() << "HScripe";
+        break;
+    case Pattern::VStripe:
+        qDebug() << "VStripe";
+        break;
+    case Pattern::SubChecker:
+        qDebug() << "SubChecker";
+        break;
+    case Pattern::SubVStripe:
+        qDebug() << "SubVStripe";
+        break;
+    case Pattern::Color:
+    default:
+        qDebug() << "Color";
+        m_pattern = new PatternColor();
+        break;
+    }
+
+    // TODO move to constructor
+    QRect rect(0, 0, 1920, 1080);
+    update(rect);
+}
+
 void CanvasArea::setCurrentGround(int ground)
 {
     qDebug() << "setCurrentGround()";

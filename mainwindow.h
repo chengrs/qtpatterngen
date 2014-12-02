@@ -23,6 +23,7 @@ private:
 
     QMenu *optionMenu;
     QMenu *helpMenu;
+    QMenu *contextMenu;
 
     QAction *testAct;
     QAction *aboutAct;
@@ -54,7 +55,6 @@ private slots:
     void test();
 
     void setGrayLevel(int);
-    void changePattern(int);
 };
 
 #endif // MAINWINDOW_H

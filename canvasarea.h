@@ -19,8 +19,8 @@ public:
     void setFgColor(const Colors::Color &);
     void setBgColor(const Colors::Color &);
 
+    // TODO maybe move to private slot
     Pattern::PaintingLevel getCurrentGround();
-//    void drawColor(Patterns)
 
 public slots:
 //    void setGrayLevel(int);
@@ -39,6 +39,7 @@ private:
 
 private slots:
     void changeColor(int);
+    void changePattern(int);
 };
 
 #endif // CANVASAREA_H
