@@ -13,9 +13,17 @@ MainWindow::MainWindow(QWidget *parent)
     createMenus();
 
     m_patternMapper->setMapping(colorAct, Pattern::Color);
-    m_patternMapper->setMapping(window121Act, Pattern::Window121);
     m_patternMapper->setMapping(hbarAct, Pattern::HBar);
     m_patternMapper->setMapping(vbarAct, Pattern::VBar);
+    m_patternMapper->setMapping(checkerAct, Pattern::Checker);
+    m_patternMapper->setMapping(window111Act, Pattern::Window111);
+    m_patternMapper->setMapping(window121Act, Pattern::Window121);
+    m_patternMapper->setMapping(windowHalfAct, Pattern::WindowHalf);
+    m_patternMapper->setMapping(iconAct, Pattern::Icons);
+    m_patternMapper->setMapping(hStripeAct, Pattern::HScripe);
+    m_patternMapper->setMapping(vStripeAct, Pattern::VStripe);
+    m_patternMapper->setMapping(subCheckerAct, Pattern::SubChecker);
+    m_patternMapper->setMapping(subVStripeAct, Pattern::SubVStripe);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->canvasArea, SLOT(changePattern(int)));
 }
@@ -81,17 +89,18 @@ void MainWindow::createActions()
 
 void MainWindow::createMenus()
 {
-    optionMenu = new QMenu(tr("&Options"), this);
+    // TODO remove blow later
+//    optionMenu = new QMenu(tr("&Options"), this);
 //    optionMenu->addAction(exitAct);
 //    optionMenu->addSeparator();
-    optionMenu->addAction(testAct);
+//    optionMenu->addAction(testAct);
 
-    helpMenu = new QMenu(tr("&Help"), this);
-    helpMenu->addAction(aboutAct);
-    helpMenu->addAction(aboutQtAct);
+//    helpMenu = new QMenu(tr("&Help"), this);
+//    helpMenu->addAction(aboutAct);
+//    helpMenu->addAction(aboutQtAct);
 
-    menuBar()->addMenu(optionMenu);
-    menuBar()->addMenu(helpMenu);
+//    menuBar()->addMenu(optionMenu);
+//    menuBar()->addMenu(helpMenu);
 
     // init context menu
     contextMenu = new QMenu(this);
@@ -132,14 +141,15 @@ void MainWindow::test()
 
 void MainWindow::showDialog()
 {
-    qDebug() << "showDialog()";
+//    qDebug() << "showDialog()";
     ConfigDialog *dialog = new ConfigDialog(this);
+
     dialog->show();
 }
 
 void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 {
-    qDebug() << "contextMenuEvent()";
+//    qDebug() << "contextMenuEvent()";
     contextMenu->exec(event->globalPos());
 }
 

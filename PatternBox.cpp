@@ -1,6 +1,7 @@
+#include <math.h>
 #include "PatternBox.h"
 
-PatternBox::PatternBox()
+PatternBox::PatternBox(int type)
 {
     // init values
     m_fgColor = Colors::W;
@@ -13,8 +14,28 @@ PatternBox::PatternBox()
     m_outerWidth = 1920;
     m_outerHeight = 1080;
 
-    m_innerWidth = m_outerWidth / 2;
-    m_innerHeight = m_outerHeight / 2;
+    switch (type) {
+    case Window111:
+        m_innerWidth = m_outerWidth / 3;
+        m_innerHeight = m_outerHeight / 3;
+        m_innerTopLeftX = m_outerWidth / 3;
+        m_innerTopLeftY = m_outerHeight / 3;
+        break;
+    case Window121:
+        m_innerWidth = m_outerWidth / 2;
+        m_innerHeight = m_outerHeight / 2;
+        m_innerTopLeftX = m_outerWidth / 4;
+        m_innerTopLeftY = m_outerHeight / 4;
+        break;
+    case WindowHalf:
+        m_innerWidth = m_outerWidth / sqrt(2);
+        m_innerHeight = m_outerHeight / sqrt(2);
+        qDebug() << "m_innerWidth = " << m_innerWidth;
+        qDebug() << "m_innerHeight = " << m_innerHeight;
+        m_innerTopLeftX = (m_outerWidth - m_innerWidth) / 2;
+        m_innerTopLeftY = (m_outerHeight - m_innerHeight) / 2;
+        break;
+    }
 }
 
 PatternBox::~PatternBox()
@@ -35,7 +56,7 @@ void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::C
     }
 
     QRect rect1(0, 0, m_outerWidth, m_outerHeight);
-    QRect rect2(m_innerWidth / 2, m_innerHeight / 2, m_innerWidth, m_innerHeight);
+    QRect rect2(m_innerTopLeftX, m_innerTopLeftY, m_innerWidth, m_innerHeight);
 
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setPen(Qt::NoPen);

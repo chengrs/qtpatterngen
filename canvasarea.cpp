@@ -7,13 +7,16 @@ CanvasArea::CanvasArea(QWidget *parent)
     m_fgColor = Colors::K;
     m_bgColor = Colors::K;
 //    m_pattern = new PatternColor();
-    m_pattern = new PatternBox();
+    m_pattern = new PatternBox(PatternBox::Window121);
 
     m_ground = Pattern::ForeGround;
 
-//    QRect rect = QApplication::desktop()->screenGeometry();
     QRect rect(0, 0, 1920, 1080);
     update(rect);
+
+//    QRect rect0 = QApplication::desktop()->screenGeometry();
+//    qDebug() << "height" << rect0.height();
+//    qDebug() << "width" << rect0.width();
 }
 
 CanvasArea::~CanvasArea()
@@ -115,15 +118,17 @@ void CanvasArea::changePattern(int pattern)
     case Pattern::Checker:
         qDebug() << "Checker";
         break;
-    case Pattern::Window121:
-        qDebug() << "Window121";
-        m_pattern = new PatternBox();
-        break;
     case Pattern::Window111:
         qDebug() << "Window111";
+        m_pattern = new PatternBox(PatternBox::Window111);
+        break;
+    case Pattern::Window121:
+        qDebug() << "Window121";
+        m_pattern = new PatternBox(PatternBox::Window121);
         break;
     case Pattern::WindowHalf:
         qDebug() << "WindowHalf";
+        m_pattern = new PatternBox(PatternBox::WindowHalf);
         break;
     case Pattern::Icons:
         qDebug() << "Icons";

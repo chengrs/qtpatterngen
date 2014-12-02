@@ -14,8 +14,14 @@ class CanvasArea;
 class PatternBox : public Pattern
 {
 public:
-    PatternBox();
+    PatternBox(int);
     ~PatternBox();
+
+    enum type {
+        Window111 = 0,
+        Window121,
+        WindowHalf
+    };
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
 
@@ -31,6 +37,9 @@ protected:
 
     int m_outerHeight;
     int m_outerWidth;
+
+    int m_innerTopLeftX;
+    int m_innerTopLeftY;
 };
 
 #endif // PATTERNBOX_H
