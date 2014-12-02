@@ -1,4 +1,3 @@
-
 #include "PatternColor.h"
 
 PatternColor::PatternColor()
@@ -22,7 +21,7 @@ void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground
     // TODO prevent memory leak
     QBrush *brush;
     switch (color) {
-    case(Colors::K) :
+    case(Colors::K):
         brush = new QBrush(QColor(0, 0, 0, 255));
         break;
     case(Colors::R):

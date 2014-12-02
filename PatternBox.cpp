@@ -55,21 +55,21 @@ void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::C
         m_fgGrayLevel = grayLevel;
     }
 
-    QRect rect1(0, 0, m_outerWidth, m_outerHeight);
-    QRect rect2(m_innerTopLeftX, m_innerTopLeftY, m_innerWidth, m_innerHeight);
+    QRect rectOuter(0, 0, m_outerWidth, m_outerHeight);
+    QRect rectInner(m_innerTopLeftX, m_innerTopLeftY, m_innerWidth, m_innerHeight);
 
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setPen(Qt::NoPen);
 
     QBrush *brush = new QBrush(QColor(m_bgGrayLevel, m_bgGrayLevel, m_bgGrayLevel, 255));
     painter.setBrush(*brush);
-    painter.drawRect(rect1);
+    painter.drawRect(rectOuter);
 
     delete brush;
 
     brush = new QBrush(QColor(m_fgGrayLevel, 0, 0, 255));
     painter.setBrush(*brush);
-    painter.drawRect(rect2);
+    painter.drawRect(rectInner);
 
     delete brush;
 }

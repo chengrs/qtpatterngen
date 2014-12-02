@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(window111Act, Pattern::Window111);
     m_patternMapper->setMapping(window121Act, Pattern::Window121);
     m_patternMapper->setMapping(windowHalfAct, Pattern::WindowHalf);
-    m_patternMapper->setMapping(iconAct, Pattern::Icons);
     m_patternMapper->setMapping(hStripeAct, Pattern::HScripe);
     m_patternMapper->setMapping(vStripeAct, Pattern::VStripe);
     m_patternMapper->setMapping(subCheckerAct, Pattern::SubChecker);
@@ -38,6 +37,10 @@ void MainWindow::createActions()
     testAct = new QAction(tr("&Test"), this);
     testAct->setShortcut(tr("Ctrl+T"));
     connect(testAct, SIGNAL(triggered()), this, SLOT(test()));
+
+    palleteAct = new QAction(tr("&Pallete"), this);
+    palleteAct->setShortcut(tr("Ctrl+P"));
+    connect(palleteAct, SIGNAL(triggered()), this, SLOT(showDialog()));
 
     aboutAct = new QAction(tr("&About"), this);
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
@@ -70,9 +73,6 @@ void MainWindow::createActions()
 
     windowHalfAct = new QAction(tr("Half Area"), this);
     connect(windowHalfAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
-
-    iconAct = new QAction(tr("Icon"), this);
-    connect(iconAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
     hStripeAct = new QAction(tr("H-Stripe"), this);
     connect(hStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
@@ -115,12 +115,12 @@ void MainWindow::createMenus()
     contextMenu->addAction(window111Act);
     contextMenu->addAction(windowHalfAct);
     contextMenu->addSeparator();
-    contextMenu->addAction(iconAct);
     contextMenu->addAction(hStripeAct);
     contextMenu->addAction(vStripeAct);
     contextMenu->addAction(subCheckerAct);
     contextMenu->addAction(subVStripeAct);
     contextMenu->addSeparator();
+    contextMenu->addAction(palleteAct);
     contextMenu->addAction(testAct);
     contextMenu->addSeparator();
     contextMenu->addAction(exitAct);
@@ -136,7 +136,7 @@ void MainWindow::about()
 
 void MainWindow::test()
 {
-    showDialog();
+    qDebug() << "test()";
 }
 
 void MainWindow::showDialog()

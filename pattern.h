@@ -24,7 +24,6 @@ public:
         Window121,
         Window111,
         WindowHalf,
-        Icons,
         HScripe,
         VStripe,
         SubChecker,

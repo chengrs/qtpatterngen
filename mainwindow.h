@@ -28,6 +28,7 @@ private:
     QAction *testAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
+    QAction *palleteAct;
     QAction *exitAct;
 
 // actions to trigger patterns
@@ -38,7 +39,6 @@ private:
     QAction *window121Act;
     QAction *window111Act;
     QAction *windowHalfAct;
-    QAction *iconAct;
     QAction *hStripeAct;
     QAction *vStripeAct;
     QAction *subCheckerAct;

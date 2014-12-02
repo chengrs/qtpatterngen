@@ -6,8 +6,7 @@ CanvasArea::CanvasArea(QWidget *parent)
     m_grayLevel = 255;
     m_fgColor = Colors::K;
     m_bgColor = Colors::K;
-//    m_pattern = new PatternColor();
-    m_pattern = new PatternBox(PatternBox::Window121);
+    m_pattern = new PatternColor();
 
     m_ground = Pattern::ForeGround;
 
@@ -26,8 +25,7 @@ CanvasArea::~CanvasArea()
 
 void CanvasArea::paintEvent(QPaintEvent *)
 {
-    qDebug() << "paintEvent()";
-
+//    qDebug() << "paintEvent()";
     QPainter painter(this);
 
     m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
@@ -111,9 +109,11 @@ void CanvasArea::changePattern(int pattern)
     switch (pattern) {
     case Pattern::HBar:
         qDebug() << "HBar";
+        m_pattern = new PatternHBar();
         break;
     case Pattern::VBar:
         qDebug() << "VBar";
+        m_pattern = new PatternVBar();
         break;
     case Pattern::Checker:
         qDebug() << "Checker";
@@ -129,9 +129,6 @@ void CanvasArea::changePattern(int pattern)
     case Pattern::WindowHalf:
         qDebug() << "WindowHalf";
         m_pattern = new PatternBox(PatternBox::WindowHalf);
-        break;
-    case Pattern::Icons:
-        qDebug() << "Icons";
         break;
     case Pattern::HScripe:
         qDebug() << "HScripe";

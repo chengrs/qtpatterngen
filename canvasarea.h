@@ -4,8 +4,10 @@
 #include <QtWidgets>
 #include "Colors.h"
 #include "Pattern.h"
-#include "PatternBox.h"
 #include "PatternColor.h"
+#include "PatternHBar.h"
+#include "PatternVBar.h"
+#include "PatternBox.h"
 
 class CanvasArea : public QWidget
 {

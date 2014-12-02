@@ -18,7 +18,9 @@ SOURCES += main.cpp\
         ConfigDialog.cpp \
         Pattern.cpp \
     PatternBox.cpp \
-    PatternColor.cpp
+    PatternColor.cpp \
+    PatternHBar.cpp \
+    PatternVBar.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \
