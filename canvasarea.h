@@ -10,6 +10,7 @@
 #include "PatternChecker.h"
 #include "PatternBox.h"
 #include "PatternHStripe.h"
+#include "PatternVStripe.h"
 
 class CanvasArea : public QWidget
 {

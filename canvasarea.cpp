@@ -137,6 +137,7 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::VStripe:
         qDebug() << "VStripe";
+        m_pattern = new PatternVStripe();
         break;
     case Pattern::SubChecker:
         qDebug() << "SubChecker";

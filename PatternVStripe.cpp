@@ -1,17 +1,17 @@
 #include <QLinearGradient>
-#include "PatternHStripe.h"
+#include "PatternVStripe.h"
 
-PatternHStripe::PatternHStripe()
+PatternVStripe::PatternVStripe()
 {
 
 }
 
-PatternHStripe::~PatternHStripe()
+PatternVStripe::~PatternVStripe()
 {
 
 }
 
-void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
+void PatternVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
 {
 //    qDebug() << "height = " << m_height;
 //    qDebug() << "width = " << m_width;
@@ -55,9 +55,9 @@ void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Co
     brush.setColor((QColor(0, 255, 0, 255)));
     painter.setBrush(brush);
 
-    for (int i = 0; i < m_width; i++) {
+    for (int i = 0; i < m_height; i++) {
         if (i % 2) {
-            painter.drawLine(i, 0, i, m_height);
+            painter.drawLine(0, i, m_width, i);
         }
     }
 }
