@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "Pattern.h"
 #include "CanvasArea.h"
+#include "ConfigDialog.h"
 
 class MainWindow : public QMainWindow
 {
@@ -13,7 +14,7 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    CanvasArea *canvasArea;
+    CanvasArea *m_canvasArea;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
@@ -21,26 +22,28 @@ protected:
 private:
     QSignalMapper *m_patternMapper;
 
-    QMenu *contextMenu;
+    ConfigDialog *m_dialog;
 
-    QAction *testAct;
-    QAction *aboutAct;
-    QAction *aboutQtAct;
-    QAction *palleteAct;
-    QAction *exitAct;
+    QMenu *m_contextMenu;
+
+    QAction *m_testAct;
+    QAction *m_aboutAct;
+    QAction *m_aboutQtAct;
+    QAction *m_palleteAct;
+    QAction *m_exitAct;
 
     // actions to trigger patterns
-    QAction *colorAct;
-    QAction *hbarAct;
-    QAction *vbarAct;
-    QAction *checkerAct;
-    QAction *window121Act;
-    QAction *window111Act;
-    QAction *windowHalfAct;
-    QAction *hStripeAct;
-    QAction *vStripeAct;
-    QAction *subCheckerAct;
-    QAction *subVStripeAct;
+    QAction *m_colorAct;
+    QAction *m_hbarAct;
+    QAction *m_vbarAct;
+    QAction *m_checkerAct;
+    QAction *m_window121Act;
+    QAction *m_window111Act;
+    QAction *m_windowHalfAct;
+    QAction *m_hStripeAct;
+    QAction *m_vStripeAct;
+    QAction *m_subCheckerAct;
+    QAction *m_subVStripeAct;
 
     Colors::Color pattern;
 

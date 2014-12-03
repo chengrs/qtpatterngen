@@ -14,9 +14,10 @@ class Pattern
 {
 public:
     Pattern();
-    Pattern(int height, int width);
-    Pattern::Pattern(QRect &);
-    ~Pattern();
+    Pattern(const int height, const int width);
+//    Pattern(int height = 1080, int width = 1920);
+    Pattern(const QRect &);
+    virtual ~Pattern();
 
     enum Patterns {
         Color = 0,
@@ -40,6 +41,7 @@ public:
     virtual void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int) = 0;
 
 protected:
+    QRect m_screenRect;
     int m_height;
     int m_width;
 };

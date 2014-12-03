@@ -1,116 +1,138 @@
 #include "MainWindow.h"
-#include "ConfigDialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    canvasArea = new CanvasArea;
-    setCentralWidget(canvasArea);
+    m_canvasArea = new CanvasArea;
+    setCentralWidget(m_canvasArea);
 
     m_patternMapper = new QSignalMapper(this);
 
     createActions();
     createMenus();
 
-    m_patternMapper->setMapping(colorAct, Pattern::Color);
-    m_patternMapper->setMapping(hbarAct, Pattern::HBar);
-    m_patternMapper->setMapping(vbarAct, Pattern::VBar);
-    m_patternMapper->setMapping(checkerAct, Pattern::Checker);
-    m_patternMapper->setMapping(window111Act, Pattern::Window111);
-    m_patternMapper->setMapping(window121Act, Pattern::Window121);
-    m_patternMapper->setMapping(windowHalfAct, Pattern::WindowHalf);
-    m_patternMapper->setMapping(hStripeAct, Pattern::HScripe);
-    m_patternMapper->setMapping(vStripeAct, Pattern::VStripe);
-    m_patternMapper->setMapping(subCheckerAct, Pattern::SubChecker);
-    m_patternMapper->setMapping(subVStripeAct, Pattern::SubVStripe);
+    m_patternMapper->setMapping(m_colorAct, Pattern::Color);
+    m_patternMapper->setMapping(m_hbarAct, Pattern::HBar);
+    m_patternMapper->setMapping(m_vbarAct, Pattern::VBar);
+    m_patternMapper->setMapping(m_checkerAct, Pattern::Checker);
+    m_patternMapper->setMapping(m_window111Act, Pattern::Window111);
+    m_patternMapper->setMapping(m_window121Act, Pattern::Window121);
+    m_patternMapper->setMapping(m_windowHalfAct, Pattern::WindowHalf);
+    m_patternMapper->setMapping(m_hStripeAct, Pattern::HScripe);
+    m_patternMapper->setMapping(m_vStripeAct, Pattern::VStripe);
+    m_patternMapper->setMapping(m_subCheckerAct, Pattern::SubChecker);
+    m_patternMapper->setMapping(m_subVStripeAct, Pattern::SubVStripe);
 
-    connect(m_patternMapper, SIGNAL(mapped(int)), this->canvasArea, SLOT(changePattern(int)));
+    connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
+
+    m_dialog = new ConfigDialog(this);
 }
 
 MainWindow::~MainWindow()
 {
+    delete m_canvasArea;
+    delete m_patternMapper;
+    delete m_contextMenu;
+    delete m_dialog;
 
+    delete m_testAct;
+    delete m_aboutAct;
+    delete m_aboutQtAct;
+    delete m_palleteAct;
+    delete m_exitAct;
+
+    delete m_colorAct;
+    delete m_hbarAct;
+    delete m_vbarAct;
+    delete m_checkerAct;
+    delete m_window121Act;
+    delete m_window111Act;
+    delete m_windowHalfAct;
+    delete m_hStripeAct;
+    delete m_vStripeAct;
+    delete m_subCheckerAct;
+    delete m_subVStripeAct;
 }
 
 void MainWindow::createActions()
 {
-    testAct = new QAction(tr("&Test"), this);
-    testAct->setShortcut(tr("Ctrl+T"));
-    connect(testAct, SIGNAL(triggered()), this, SLOT(test()));
+    m_testAct = new QAction(tr("&Test"), this);
+    m_testAct->setShortcut(tr("Ctrl+T"));
+    connect(m_testAct, SIGNAL(triggered()), this, SLOT(test()));
 
-    palleteAct = new QAction(tr("&Pallete"), this);
-    palleteAct->setShortcut(tr("Ctrl+P"));
-    connect(palleteAct, SIGNAL(triggered()), this, SLOT(showDialog()));
+    m_palleteAct = new QAction(tr("&Pallete"), this);
+    m_palleteAct->setShortcut(tr("Ctrl+P"));
+    connect(m_palleteAct, SIGNAL(triggered()), this, SLOT(showDialog()));
 
-    aboutAct = new QAction(tr("&About"), this);
-    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
+    m_aboutAct = new QAction(tr("&About"), this);
+    connect(m_aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
-    aboutQtAct = new QAction(tr("About &Qt"), this);
-    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+    m_aboutQtAct = new QAction(tr("About &Qt"), this);
+    connect(m_aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 
-    exitAct = new QAction(tr("&Exit"), this);
-    exitAct->setShortcut(tr("Ctrl+Q"));
-    connect(exitAct, SIGNAL(triggered()), this, SLOT(close()));
+    m_exitAct = new QAction(tr("&Exit"), this);
+    m_exitAct->setShortcut(tr("Ctrl+Q"));
+    connect(m_exitAct, SIGNAL(triggered()), this, SLOT(close()));
 
     // init pattern actions
-    colorAct = new QAction(tr("Color"), this);
-    connect(colorAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_colorAct = new QAction(tr("Color"), this);
+    connect(m_colorAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    hbarAct = new QAction(tr("HBar"), this);
-    connect(hbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_hbarAct = new QAction(tr("HBar"), this);
+    connect(m_hbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    vbarAct = new QAction(tr("VBar"), this);
-    connect(vbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_vbarAct = new QAction(tr("VBar"), this);
+    connect(m_vbarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    checkerAct = new QAction(tr("Checker"), this);
-    connect(checkerAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_checkerAct = new QAction(tr("Checker"), this);
+    connect(m_checkerAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    window121Act = new QAction(tr("1:2:1"), this);
-    connect(window121Act, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_window121Act = new QAction(tr("1:2:1"), this);
+    connect(m_window121Act, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    window111Act = new QAction(tr("1:1:1"), this);
-    connect(window111Act, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_window111Act = new QAction(tr("1:1:1"), this);
+    connect(m_window111Act, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    windowHalfAct = new QAction(tr("Half Area"), this);
-    connect(windowHalfAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_windowHalfAct = new QAction(tr("Half Area"), this);
+    connect(m_windowHalfAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    hStripeAct = new QAction(tr("H-Stripe"), this);
-    connect(hStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_hStripeAct = new QAction(tr("H-Stripe"), this);
+    connect(m_hStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    vStripeAct = new QAction(tr("V-Stripe"), this);
-    connect(vStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_vStripeAct = new QAction(tr("V-Stripe"), this);
+    connect(m_vStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    subCheckerAct = new QAction(tr("Sub-Checker"), this);
-    connect(subCheckerAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_subCheckerAct = new QAction(tr("Sub-Checker"), this);
+    connect(m_subCheckerAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 
-    subVStripeAct = new QAction(tr("Sub-V-Stripe"), this);
-    connect(subVStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+    m_subVStripeAct = new QAction(tr("Sub-V-Stripe"), this);
+    connect(m_subVStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
 {
     // init context menu
-    contextMenu = new QMenu(this);
-    contextMenu->addAction(aboutAct);
-    contextMenu->addSeparator();
-    contextMenu->addAction(colorAct);
-    contextMenu->addAction(hbarAct);
-    contextMenu->addAction(vbarAct);
-    contextMenu->addAction(checkerAct);
-    contextMenu->addSeparator();
-    contextMenu->addAction(window121Act);
-    contextMenu->addAction(window111Act);
-    contextMenu->addAction(windowHalfAct);
-    contextMenu->addSeparator();
-    contextMenu->addAction(hStripeAct);
-    contextMenu->addAction(vStripeAct);
-    contextMenu->addAction(subCheckerAct);
-    contextMenu->addAction(subVStripeAct);
-    contextMenu->addSeparator();
-    contextMenu->addAction(palleteAct);
-    contextMenu->addAction(testAct);
-    contextMenu->addSeparator();
-    contextMenu->addAction(exitAct);
+    m_contextMenu = new QMenu(this);
+    m_contextMenu->addAction(m_aboutAct);
+    m_contextMenu->addSeparator();
+    m_contextMenu->addAction(m_colorAct);
+    m_contextMenu->addAction(m_hbarAct);
+    m_contextMenu->addAction(m_vbarAct);
+    m_contextMenu->addAction(m_checkerAct);
+    m_contextMenu->addSeparator();
+    m_contextMenu->addAction(m_window121Act);
+    m_contextMenu->addAction(m_window111Act);
+    m_contextMenu->addAction(m_windowHalfAct);
+    m_contextMenu->addSeparator();
+    m_contextMenu->addAction(m_hStripeAct);
+    m_contextMenu->addAction(m_vStripeAct);
+    m_contextMenu->addAction(m_subCheckerAct);
+    m_contextMenu->addAction(m_subVStripeAct);
+    m_contextMenu->addSeparator();
+    m_contextMenu->addAction(m_palleteAct);
+    m_contextMenu->addAction(m_testAct);
+    m_contextMenu->addSeparator();
+    m_contextMenu->addAction(m_exitAct);
 }
 
 void MainWindow::about()
@@ -129,18 +151,16 @@ void MainWindow::test()
 void MainWindow::showDialog()
 {
 //    qDebug() << "showDialog()";
-    ConfigDialog *dialog = new ConfigDialog(this);
-
-    dialog->show();
+    m_dialog->show();
 }
 
 void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 {
 //    qDebug() << "contextMenuEvent()";
-    contextMenu->exec(event->globalPos());
+    m_contextMenu->exec(event->globalPos());
 }
 
 void MainWindow::setGrayLevel(int value)
 {
-    canvasArea->setGrayLevel(value);
+    m_canvasArea->setGrayLevel(value);
 }

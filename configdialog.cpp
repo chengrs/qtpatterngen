@@ -65,7 +65,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     m_colorMapper->setMapping(aButton, Colors::A);
     m_colorMapper->setMapping(wButton, Colors::W);
 
-    connect(m_colorMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->canvasArea, SLOT(changeColor(int)));
+    connect(m_colorMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->m_canvasArea, SLOT(changeColor(int)));
 
     colorButtonBox = new QDialogButtonBox(Qt::Horizontal);
     colorButtonBox->addButton(kButton, QDialogButtonBox::ActionRole);
@@ -91,9 +91,9 @@ ConfigDialog::ConfigDialog(QWidget *parent)
 
     m_groundMapper->setMapping(fgRadio, Pattern::ForeGround);
     m_groundMapper->setMapping(bgRadio, Pattern::BackGround);
-    connect(m_groundMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->canvasArea, SLOT(setCurrentGround(int)));
+    connect(m_groundMapper, SIGNAL(mapped(int)), ((MainWindow *) parent)->m_canvasArea, SLOT(setCurrentGround(int)));
 
-    if (((MainWindow *) parent)->canvasArea->getCurrentGround() == Pattern::BackGround) {
+    if (((MainWindow *) parent)->m_canvasArea->getCurrentGround() == Pattern::BackGround) {
         bgRadio->setChecked(true);
     } else {
         fgRadio->setChecked(true);

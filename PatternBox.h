@@ -14,8 +14,9 @@ class CanvasArea;
 class PatternBox : public Pattern
 {
 public:
-    PatternBox(int);
+    explicit PatternBox(int);
     PatternBox(int, int, int);
+    PatternBox(int, const QRect &);
     ~PatternBox();
 
     enum types {

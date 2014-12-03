@@ -16,6 +16,7 @@ class PatternHStripe : public Pattern
 public:
     PatternHStripe();
     PatternHStripe(int height, int width) : Pattern(height, width) {}
+    PatternHStripe(const QRect &rect) : Pattern(rect) {}
     ~PatternHStripe();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

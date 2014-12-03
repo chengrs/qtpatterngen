@@ -16,6 +16,7 @@ class PatternSubChecker : public Pattern
 public:
     PatternSubChecker();
     PatternSubChecker(int height, int width) : Pattern(height, width) {}
+    PatternSubChecker(const QRect &rect) : Pattern(rect) {}
     ~PatternSubChecker();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

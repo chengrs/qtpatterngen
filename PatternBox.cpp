@@ -10,10 +10,6 @@ PatternBox::PatternBox(int type, int m_height, int m_width)
     m_fgGrayLevel = 255;
     m_bgGrayLevel = 255;
 
-    // TODO get the resolution value from system
-//    m_outerWidth = 1920;
-//    m_outerHeight = 1080;
-
     switch (type) {
     case Window111:
         m_innerWidth = m_width / 3;
@@ -36,6 +32,14 @@ PatternBox::PatternBox(int type, int m_height, int m_width)
         m_innerTopLeftY = (m_height - m_innerHeight) / 2;
         break;
     }
+}
+
+// TODO something wrong here
+PatternBox::PatternBox(int type, const QRect &screenRect)
+{
+    PatternBox(type, screenRect.height(), screenRect.width());
+
+    m_screenRect = screenRect;
 }
 
 PatternBox::~PatternBox()
