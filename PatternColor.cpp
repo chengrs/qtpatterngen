@@ -15,7 +15,7 @@ void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground
 //    qDebeg() << "drawPattern()";
     QRect rect(0, 0, 1920, 1080);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(Qt::NoPen);
 
     // TODO prevent memory leak

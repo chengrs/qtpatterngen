@@ -58,7 +58,7 @@ void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::C
     QRect rectOuter(0, 0, m_outerWidth, m_outerHeight);
     QRect rectInner(m_innerTopLeftX, m_innerTopLeftY, m_innerWidth, m_innerHeight);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(Qt::NoPen);
 
     QBrush *brush = new QBrush(QColor(m_bgGrayLevel, m_bgGrayLevel, m_bgGrayLevel, 255));
