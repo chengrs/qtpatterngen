@@ -21,13 +21,10 @@ public:
     ~ConfigDialog();
 
 private:
-// test
-    QWidget *mainWidget;
-// test
     QSignalMapper *m_colorMapper;
     QSignalMapper *m_groundMapper;
 
-// settings
+    // settings
     QLabel *hintLabel;
     QLabel *zeroLabel;
     QLabel *sixThreeLabel;
@@ -45,15 +42,11 @@ private:
     QPushButton *aButton;
     QPushButton *wButton;
 
-    QPushButton *fgButton;
-    QPushButton *bgButton;
-
     QGroupBox *groupBox;
     QRadioButton *fgRadio;
     QRadioButton *bgRadio;
 
     QDialogButtonBox *colorButtonBox;
-    QDialogButtonBox *gButtonBox;
 };
 
 #endif // CONFIGDIALOG_H

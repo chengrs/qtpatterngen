@@ -15,6 +15,7 @@ class PatternVBar : public Pattern
 {
 public:
     PatternVBar();
+    PatternVBar(int height, int width) : Pattern(height, width) {}
     ~PatternVBar();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

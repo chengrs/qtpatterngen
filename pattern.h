@@ -14,6 +14,8 @@ class Pattern
 {
 public:
     Pattern();
+    Pattern(int height, int width);
+    Pattern::Pattern(QRect &);
     ~Pattern();
 
     enum Patterns {

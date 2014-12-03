@@ -15,6 +15,7 @@ class PatternHBar : public Pattern
 {
 public:
     PatternHBar();
+    PatternHBar(int height, int width) : Pattern(height, width) {}
     ~PatternHBar();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

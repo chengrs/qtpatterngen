@@ -15,9 +15,10 @@ class PatternBox : public Pattern
 {
 public:
     PatternBox(int);
+    PatternBox(int, int, int);
     ~PatternBox();
 
-    enum type {
+    enum types {
         Window111 = 0,
         Window121,
         WindowHalf
@@ -35,11 +36,10 @@ protected:
     int m_innerHeight;
     int m_innerWidth;
 
-    int m_outerHeight;
-    int m_outerWidth;
-
     int m_innerTopLeftX;
     int m_innerTopLeftY;
+
+    int type;
 };
 
 #endif // PATTERNBOX_H

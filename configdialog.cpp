@@ -76,15 +76,7 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     colorButtonBox->addButton(mButton, QDialogButtonBox::ActionRole);
     colorButtonBox->addButton(aButton, QDialogButtonBox::ActionRole);
     colorButtonBox->addButton(wButton, QDialogButtonBox::ActionRole);
-/*
-    fgButton = new QPushButton(tr("&FG"));
-    fgButton->setCheckable(true);
-    fgButton->setAutoDefault(false);
 
-    bgButton = new QPushButton(tr("&BG"));
-    bgButton->setCheckable(true);
-    bgButton->setAutoDefault(false);
-*/
     groupBox = new QGroupBox(tr("Foreground or Background"));
 
     m_groundMapper = new QSignalMapper(this);
@@ -106,18 +98,13 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     } else {
         fgRadio->setChecked(true);
     }
-/*
-    gButtonBox = new QDialogButtonBox(Qt::Horizontal);
-    gButtonBox->addButton(fgButton, QDialogButtonBox::ActionRole);
-    gButtonBox->addButton(bgButton, QDialogButtonBox::ActionRole);
-*/
+
     QVBoxLayout *firstLayerLayout = new QVBoxLayout;
     firstLayerLayout->addWidget(grayLevelSpinBox);
     firstLayerLayout->addWidget(grayLevelSlider);
     firstLayerLayout->addWidget(colorButtonBox);
 
     QHBoxLayout *secondLayerLayout = new QHBoxLayout;
-//    secondLayerLayout->addWidget(gButtonBox);
     secondLayerLayout->addWidget(fgRadio);
     secondLayerLayout->addWidget(bgRadio);
     groupBox->setLayout(secondLayerLayout);

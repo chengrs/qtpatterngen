@@ -15,6 +15,7 @@ class PatternColor : public Pattern
 {
 public:
     PatternColor();
+    PatternColor(int height, int width) : Pattern(height, width) {}
     ~PatternColor();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

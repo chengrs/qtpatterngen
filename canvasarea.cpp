@@ -10,12 +10,11 @@ CanvasArea::CanvasArea(QWidget *parent)
 
     m_ground = Pattern::ForeGround;
 
-    QRect rect(0, 0, 1920, 1080);
-    update(rect);
+    m_screenRect = QApplication::desktop()->screenGeometry();
+    update(m_screenRect);
 
-//    QRect rect0 = QApplication::desktop()->screenGeometry();
-//    qDebug() << "height" << rect0.height();
-//    qDebug() << "width" << rect0.width();
+//    qDebug() << "height" << m_screenRect.height();
+//    qDebug() << "width" << m_screenRect.width();
 }
 
 CanvasArea::~CanvasArea()
@@ -25,7 +24,6 @@ CanvasArea::~CanvasArea()
 
 void CanvasArea::paintEvent(QPaintEvent *)
 {
-//    qDebug() << "paintEvent()";
     QPainter painter(this);
 
     m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
@@ -109,54 +107,52 @@ void CanvasArea::changePattern(int pattern)
     switch (pattern) {
     case Pattern::HBar:
         qDebug() << "HBar";
-        m_pattern = new PatternHBar();
+        m_pattern = new PatternHBar(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::VBar:
         qDebug() << "VBar";
-        m_pattern = new PatternVBar();
+        m_pattern = new PatternVBar(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::Checker:
         qDebug() << "Checker";
-        m_pattern = new PatternChecker();
+        m_pattern = new PatternChecker(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::Window111:
         qDebug() << "Window111";
-        m_pattern = new PatternBox(PatternBox::Window111);
+        m_pattern = new PatternBox(PatternBox::Window111, m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::Window121:
         qDebug() << "Window121";
-        m_pattern = new PatternBox(PatternBox::Window121);
+        m_pattern = new PatternBox(PatternBox::Window121, m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::WindowHalf:
         qDebug() << "WindowHalf";
-        m_pattern = new PatternBox(PatternBox::WindowHalf);
+        m_pattern = new PatternBox(PatternBox::WindowHalf, m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::HScripe:
         qDebug() << "HScripe";
-        m_pattern = new PatternHStripe();
+        m_pattern = new PatternHStripe(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::VStripe:
         qDebug() << "VStripe";
-        m_pattern = new PatternVStripe();
+        m_pattern = new PatternVStripe(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::SubChecker:
         qDebug() << "SubChecker";
-        m_pattern = new PatternSubChecker();
+        m_pattern = new PatternSubChecker(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::SubVStripe:
         qDebug() << "SubVStripe";
-        m_pattern = new PatternSubVStripe();
+        m_pattern = new PatternSubVStripe(m_screenRect.height(), m_screenRect.width());
         break;
     case Pattern::Color:
     default:
         qDebug() << "Color";
-        m_pattern = new PatternColor();
+        m_pattern = new PatternColor(m_screenRect.height(), m_screenRect.width());
         break;
     }
 
-    // TODO move to constructor
-    QRect rect(0, 0, 1920, 1080);
-    update(rect);
+    update(m_screenRect);
 }
 
 void CanvasArea::setCurrentGround(int ground)

@@ -13,7 +13,7 @@ PatternVBar::~PatternVBar()
 
 void PatternVBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int)
 {
-    QRect rect(0, 0, 1920, 1080);
+    QRect rect(0, 0, m_width, m_height);
 
     QLinearGradient gradient(rect.left(), rect.height() / 2, rect.right(), rect.height() / 2);
     gradient.setColorAt(0, Qt::black);

@@ -13,7 +13,7 @@ PatternHBar::~PatternHBar()
 
 void PatternHBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int)
 {
-    QRect rect(0, 0, 1920, 1080);
+    QRect rect(0, 0, m_width, m_height);
 
     QLinearGradient gradient(rect.width() / 2, rect.top(), rect.width() / 2, rect.bottom());
     gradient.setColorAt(0, Qt::black);

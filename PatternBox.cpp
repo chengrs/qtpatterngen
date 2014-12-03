@@ -1,7 +1,7 @@
 #include <math.h>
 #include "PatternBox.h"
 
-PatternBox::PatternBox(int type)
+PatternBox::PatternBox(int type, int m_height, int m_width)
 {
     // init values
     m_fgColor = Colors::W;
@@ -11,29 +11,29 @@ PatternBox::PatternBox(int type)
     m_bgGrayLevel = 255;
 
     // TODO get the resolution value from system
-    m_outerWidth = 1920;
-    m_outerHeight = 1080;
+//    m_outerWidth = 1920;
+//    m_outerHeight = 1080;
 
     switch (type) {
     case Window111:
-        m_innerWidth = m_outerWidth / 3;
-        m_innerHeight = m_outerHeight / 3;
-        m_innerTopLeftX = m_outerWidth / 3;
-        m_innerTopLeftY = m_outerHeight / 3;
+        m_innerWidth = m_width / 3;
+        m_innerHeight = m_height / 3;
+        m_innerTopLeftX = m_width / 3;
+        m_innerTopLeftY = m_height / 3;
         break;
     case Window121:
-        m_innerWidth = m_outerWidth / 2;
-        m_innerHeight = m_outerHeight / 2;
-        m_innerTopLeftX = m_outerWidth / 4;
-        m_innerTopLeftY = m_outerHeight / 4;
+        m_innerWidth = m_width / 2;
+        m_innerHeight = m_height / 2;
+        m_innerTopLeftX = m_width / 4;
+        m_innerTopLeftY = m_height / 4;
         break;
     case WindowHalf:
-        m_innerWidth = m_outerWidth / sqrt(2);
-        m_innerHeight = m_outerHeight / sqrt(2);
+        m_innerWidth = m_width / sqrt(2);
+        m_innerHeight = m_height / sqrt(2);
         qDebug() << "m_innerWidth = " << m_innerWidth;
         qDebug() << "m_innerHeight = " << m_innerHeight;
-        m_innerTopLeftX = (m_outerWidth - m_innerWidth) / 2;
-        m_innerTopLeftY = (m_outerHeight - m_innerHeight) / 2;
+        m_innerTopLeftX = (m_width - m_innerWidth) / 2;
+        m_innerTopLeftY = (m_height - m_innerHeight) / 2;
         break;
     }
 }
@@ -55,7 +55,7 @@ void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::C
         m_fgGrayLevel = grayLevel;
     }
 
-    QRect rectOuter(0, 0, m_outerWidth, m_outerHeight);
+    QRect rectOuter(0, 0, m_width, m_height);
     QRect rectInner(m_innerTopLeftX, m_innerTopLeftY, m_innerWidth, m_innerHeight);
 
     painter.setRenderHint(QPainter::Antialiasing, false);

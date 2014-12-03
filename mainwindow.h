@@ -21,8 +21,6 @@ protected:
 private:
     QSignalMapper *m_patternMapper;
 
-    QMenu *optionMenu;
-    QMenu *helpMenu;
     QMenu *contextMenu;
 
     QAction *testAct;
@@ -31,7 +29,7 @@ private:
     QAction *palleteAct;
     QAction *exitAct;
 
-// actions to trigger patterns
+    // actions to trigger patterns
     QAction *colorAct;
     QAction *hbarAct;
     QAction *vbarAct;

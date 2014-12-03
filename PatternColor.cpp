@@ -13,7 +13,7 @@ PatternColor::~PatternColor()
 void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground, Colors::Color &color, int grayLevel)
 {
 //    qDebeg() << "drawPattern()";
-    QRect rect(0, 0, 1920, 1080);
+    QRect rect(0, 0, m_width, m_height);
 
     painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(Qt::NoPen);

@@ -89,19 +89,6 @@ void MainWindow::createActions()
 
 void MainWindow::createMenus()
 {
-    // TODO remove blow later
-//    optionMenu = new QMenu(tr("&Options"), this);
-//    optionMenu->addAction(exitAct);
-//    optionMenu->addSeparator();
-//    optionMenu->addAction(testAct);
-
-//    helpMenu = new QMenu(tr("&Help"), this);
-//    helpMenu->addAction(aboutAct);
-//    helpMenu->addAction(aboutQtAct);
-
-//    menuBar()->addMenu(optionMenu);
-//    menuBar()->addMenu(helpMenu);
-
     // init context menu
     contextMenu = new QMenu(this);
     contextMenu->addAction(aboutAct);

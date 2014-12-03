@@ -15,6 +15,7 @@ class PatternSubVStripe : public Pattern
 {
 public:
     PatternSubVStripe();
+    PatternSubVStripe(int height, int width) : Pattern(height, width) {}
     ~PatternSubVStripe();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);

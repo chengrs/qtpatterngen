@@ -26,17 +26,16 @@ public:
     void setFgColor(const Colors::Color &);
     void setBgColor(const Colors::Color &);
 
-    // TODO maybe move to private slot
     Pattern::PaintingLevel getCurrentGround();
 
 public slots:
-//    void setGrayLevel(int);
     void setCurrentGround(int);
 
 protected:
     void paintEvent(QPaintEvent *event);
 
 private:
+    QRect m_screenRect;
     int m_grayLevel;
     Colors::Color m_fgColor;
     Colors::Color m_bgColor;
