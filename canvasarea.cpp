@@ -133,6 +133,7 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::HScripe:
         qDebug() << "HScripe";
+        m_pattern = new PatternHStripe();
         break;
     case Pattern::VStripe:
         qDebug() << "VStripe";

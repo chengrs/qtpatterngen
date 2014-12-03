@@ -53,5 +53,4 @@ void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground
     painter.drawRect(rect);
 
     delete brush;
-
 }

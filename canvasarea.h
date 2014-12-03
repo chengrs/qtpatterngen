@@ -9,6 +9,7 @@
 #include "PatternVBar.h"
 #include "PatternChecker.h"
 #include "PatternBox.h"
+#include "PatternHStripe.h"
 
 class CanvasArea : public QWidget
 {

@@ -1,17 +1,17 @@
 #include <QLinearGradient>
-#include "PatternChecker.h"
+#include "PatternHStripe.h"
 
-PatternChecker::PatternChecker()
+PatternHStripe::PatternHStripe()
 {
 
 }
 
-PatternChecker::~PatternChecker()
+PatternHStripe::~PatternHStripe()
 {
 
 }
 
-void PatternChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
+void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
 {
 //    qDebug() << "height = " << m_height;
 //    qDebug() << "width = " << m_width;
@@ -52,19 +52,13 @@ void PatternChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Co
         break;
     }
 
-//    brush.setColor((QColor(0, 0, 0, 255)));
+    brush.setColor((QColor(0, 255, 0, 255)));
     painter.setBrush(brush);
 
     for (int i = 0; i < m_width; i++) {
-        for (int j = 0; j < m_height; j++) {
-            if ((i + j) % 2) {
-                painter.drawPoint(i, j);
-            }
+        if (i % 2) {
+            painter.drawLine(i, 0, i, m_height);
         }
     }
-
-//    QRect rect2(0, 0, m_width / 2, m_height / 2);
-//    painter.drawRect(rect2);
-
 }
 
