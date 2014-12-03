@@ -36,6 +36,10 @@ public:
     };
 
     virtual void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int) = 0;
+
+protected:
+    int m_height;
+    int m_width;
 };
 
 #endif // PATTERN_H

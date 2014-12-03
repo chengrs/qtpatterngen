@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     PatternBox.cpp \
     PatternColor.cpp \
     PatternHBar.cpp \
-    PatternVBar.cpp
+    PatternVBar.cpp \
+    PatternChecker.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \
@@ -30,4 +31,5 @@ HEADERS += MainWindow.h \
         PatternHBar.h \
         PatternVBar.h \
     Colors.h \
-    PatternBox.h
+    PatternBox.h \
+    PatternChecker.h

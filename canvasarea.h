@@ -7,6 +7,7 @@
 #include "PatternColor.h"
 #include "PatternHBar.h"
 #include "PatternVBar.h"
+#include "PatternChecker.h"
 #include "PatternBox.h"
 
 class CanvasArea : public QWidget

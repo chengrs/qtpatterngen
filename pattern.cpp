@@ -2,7 +2,8 @@
 
 Pattern::Pattern()
 {
-
+    m_height = 1080;
+    m_width = 1920;
 }
 
 Pattern::~Pattern()

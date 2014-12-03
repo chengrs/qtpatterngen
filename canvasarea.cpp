@@ -117,6 +117,7 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::Checker:
         qDebug() << "Checker";
+        m_pattern = new PatternChecker();
         break;
     case Pattern::Window111:
         qDebug() << "Window111";
