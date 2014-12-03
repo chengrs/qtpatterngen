@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     PatternVBar.cpp \
     PatternChecker.cpp \
     PatternHStripe.cpp \
-    PatternVStripe.cpp
+    PatternVStripe.cpp \
+    PatternSubVStripe.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \

@@ -144,6 +144,7 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::SubVStripe:
         qDebug() << "SubVStripe";
+        m_pattern = new PatternSubVStripe();
         break;
     case Pattern::Color:
     default:

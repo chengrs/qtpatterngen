@@ -52,7 +52,7 @@ void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Co
         break;
     }
 
-    brush.setColor((QColor(0, 255, 0, 255)));
+//    brush.setColor((QColor(0, 255, 0, 255)));
     painter.setBrush(brush);
 
     for (int i = 0; i < m_width; i++) {

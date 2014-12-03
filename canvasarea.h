@@ -11,6 +11,7 @@
 #include "PatternBox.h"
 #include "PatternHStripe.h"
 #include "PatternVStripe.h"
+#include "PatternSubVStripe.h"
 
 class CanvasArea : public QWidget
 {
