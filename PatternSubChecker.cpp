@@ -1,17 +1,17 @@
 #include <QLinearGradient>
-#include "PatternSubVStripe.h"
+#include "PatternSubChecker.h"
 
-PatternSubVStripe::PatternSubVStripe()
+PatternSubChecker::PatternSubChecker()
 {
 
 }
 
-PatternSubVStripe::~PatternSubVStripe()
+PatternSubChecker::~PatternSubChecker()
 {
 
 }
 
-void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
+void PatternSubChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
 {
 //    qDebug() << "height = " << m_height;
 //    qDebug() << "width = " << m_width;
@@ -52,21 +52,31 @@ void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &,
 //        break;
 //    }
 
-    brush.setColor(QColor(255, 0, 255, 255));
+    brush.setColor((QColor(255, 0, 255, 255)));
     painter.setBrush(brush);
 
-    for (int i = 0; i < m_height; i++) {
-        if (i % 2) {
-            painter.drawLine(0, i, m_width, i);
+    for (int i = 0; i < m_width; i++) {
+        for (int j = 0; j < m_height; j++) {
+            if ((i + j) % 2) {
+                painter.drawPoint(i, j);
+            }
         }
     }
 
     brush.setColor((QColor(0, 255, 0, 255)));
     painter.setBrush(brush);
-    for (int i = 0; i < m_height; i++) {
-        if ((i % 2) == 1) {
-            painter.drawLine(0, i, m_width, i);
+
+    for (int i = 0; i < m_width; i++) {
+        for (int j = 0; j < m_height; j++) {
+            if (((i + j) % 2) == 1) {
+                painter.drawPoint(i, j);
+            }
         }
     }
+
+//    QRect rect2(0, 0, m_width / 2, m_height / 2);
+//    painter.drawRect(rect2);
+
 }
+
 
