@@ -19,7 +19,8 @@ void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &,
     painter.setRenderHint(QPainter::Antialiasing, false);
 
     QRect rect(0, 0, m_width, m_height);
-    QBrush brush(QColor(255, 255, 255, 255));
+//    QBrush brush(QColor(255, 255, 255, 255));
+    QBrush brush(Qt::black);
 
     painter.setBrush(brush);
     painter.drawRect(rect);
@@ -52,20 +53,20 @@ void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &,
 //        break;
 //    }
 
-    brush.setColor(QColor(255, 0, 255, 255));
-    painter.setBrush(brush);
+    painter.setPen(QColor(grayLevel, 0, grayLevel, 255));
+//    painter.setBrush(brush);
 
-    for (int i = 0; i < m_height; i++) {
-        if (i % 2) {
-            painter.drawLine(0, i, m_width, i);
+    for (int i = 0; i < m_width; i++) {
+        if ((i % 2) == 1) {
+            painter.drawLine(i, 0, i, m_height);
         }
     }
 
-    brush.setColor((QColor(0, 255, 0, 255)));
-    painter.setBrush(brush);
-    for (int i = 0; i < m_height; i++) {
-        if ((i % 2) == 1) {
-            painter.drawLine(0, i, m_width, i);
+    painter.setPen((QColor(0, grayLevel, 0, 255)));
+//    painter.setBrush(brush);
+    for (int i = 0; i < m_width; i++) {
+        if ((i % 2) == 0) {
+            painter.drawLine(i, 0, i, m_height);
         }
     }
 }

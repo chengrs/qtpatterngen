@@ -4,8 +4,8 @@ CanvasArea::CanvasArea(QWidget *parent)
     : QWidget(parent)
 {
     m_grayLevel = 255;
-    m_fgColor = Colors::K;
-    m_bgColor = Colors::K;
+    m_fgColor = Colors::G;
+    m_bgColor = Colors::W;
     m_pattern = new PatternColor();
 
     m_ground = Pattern::ForeGround;
@@ -28,7 +28,12 @@ void CanvasArea::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
-    m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
+    // XXX super ugly code
+    if (m_ground == Pattern::ForeGround) {
+        m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
+    } else {
+        m_pattern->drawPattern(painter, m_ground, m_bgColor, m_grayLevel);
+    }
 }
 
 void CanvasArea::setGrayLevel(int value)
@@ -49,6 +54,8 @@ void CanvasArea::setFgColor(const Colors::Color &c)
 void CanvasArea::setBgColor(const Colors::Color &c)
 {
     m_bgColor = c;
+
+    update(m_screenRect);
 }
 
 Pattern::PaintingLevel CanvasArea::getCurrentGround()

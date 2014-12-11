@@ -130,7 +130,7 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_subVStripeAct);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_palleteAct);
-    m_contextMenu->addAction(m_testAct);
+//    m_contextMenu->addAction(m_testAct);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_exitAct);
 }
@@ -138,8 +138,8 @@ void MainWindow::createMenus()
 void MainWindow::about()
 {
     QMessageBox::about(this, tr("About PatternGen"),
-            tr("<p>The <b>Patterngen</b> is developed by AUOO</p> "
-               "<p>No rights reserved.</p>"
+            tr("<p>This <b>Program</b> is developed by AUOOO</p> "
+               "<p>NO rights reserved.</p>"
                "<p>Thank you!</p>"));
 }
 
