@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     PatternSubVStripe.cpp \
     PatternSubChecker.cpp \
     PatternHHalf.cpp \
-    PatternVHalf.cpp
+    PatternVHalf.cpp \
+    PatternColorBar.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \
@@ -44,4 +45,5 @@ HEADERS += MainWindow.h \
     PatternSubVStripe.h \
     PatternSubChecker.h \
     PatternHHalf.h \
-    PatternVHalf.h
+    PatternVHalf.h \
+    PatternColorBar.h

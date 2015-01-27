@@ -15,6 +15,7 @@
 #include "PatternSubVStripe.h"
 #include "PatternHHalf.h"
 #include "PatternVHalf.h"
+#include "PatternColorBar.h"
 
 class CanvasArea : public QWidget
 {

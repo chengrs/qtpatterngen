@@ -166,6 +166,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "VHalf";
         m_pattern = new PatternVHalf(m_screenRect.height());
         break;
+    case Pattern::ColorBar:
+        qDebug() << "ColorBar";
+        m_pattern = new PatternColorBar(m_screenRect);
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

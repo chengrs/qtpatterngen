@@ -48,6 +48,7 @@ private:
     QAction *m_subVStripeAct;
     QAction *m_hHalfAct;
     QAction *m_vHalfAct;
+    QAction *m_colorBarAct;
 
     Colors::Color pattern;
 

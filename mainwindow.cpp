@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(m_subVStripeAct, Pattern::SubVStripe);
     m_patternMapper->setMapping(m_hHalfAct, Pattern::HHalf);
     m_patternMapper->setMapping(m_vHalfAct, Pattern::VHalf);
+    m_patternMapper->setMapping(m_colorBarAct, Pattern::ColorBar);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
 
@@ -55,6 +56,7 @@ MainWindow::~MainWindow()
     delete m_subCheckerAct;
     delete m_hHalfAct;
     delete m_vHalfAct;
+    delete m_colorBarAct;
 }
 
 void MainWindow::createActions()
@@ -116,6 +118,9 @@ void MainWindow::createActions()
 
     m_vHalfAct = new QAction(tr("V-Half"), this);
     connect(m_vHalfAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    m_colorBarAct = new QAction(tr("Color Bar"), this);
+    connect(m_colorBarAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -132,6 +137,7 @@ void MainWindow::createMenus()
 
     m_contextMenu->addAction(m_hHalfAct);
     m_contextMenu->addAction(m_vHalfAct);
+    m_contextMenu->addAction(m_colorBarAct);
     m_contextMenu->addSeparator();
 
     m_windowMenu = new QMenu(tr("Window"), this);
