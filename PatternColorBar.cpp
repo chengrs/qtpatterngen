@@ -58,5 +58,3 @@ void PatternColorBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, C
     gradient.setColorAt(1, QColor(0, 0, 255, 255));
     painter.fillRect(rect8, gradient);
 }
-
-

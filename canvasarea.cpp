@@ -170,6 +170,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "ColorBar";
         m_pattern = new PatternColorBar(m_screenRect);
         break;
+    case Pattern::BackScan:
+        qDebug() << "BackScan";
+        m_pattern = new PatternBackScan(m_screenRect);
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

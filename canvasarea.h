@@ -16,6 +16,7 @@
 #include "PatternHHalf.h"
 #include "PatternVHalf.h"
 #include "PatternColorBar.h"
+#include "PatternBackScan.h"
 
 class CanvasArea : public QWidget
 {

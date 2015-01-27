@@ -33,7 +33,8 @@ public:
         SubVStripe,
         HHalf,
         VHalf,
-        ColorBar
+        ColorBar,
+        BackScan
     };
 
     enum PaintingLevel {

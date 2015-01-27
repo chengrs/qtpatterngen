@@ -49,6 +49,7 @@ private:
     QAction *m_hHalfAct;
     QAction *m_vHalfAct;
     QAction *m_colorBarAct;
+    QAction *m_backScanAct;
 
     Colors::Color pattern;
 
