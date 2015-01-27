@@ -1,5 +1,5 @@
-#ifndef PATTERNHHALF_H
-#define PATTERNHHALF_H
+#ifndef PATTERNVHALF_H
+#define PATTERNVHALF_H
 
 #include <QtWidgets>
 #include "Pattern.h"
@@ -11,14 +11,14 @@ QT_END_NAMESPACE
 
 class CanvasArea;
 
-class PatternHHalf : public Pattern
+class PatternVHalf : public Pattern
 {
 public:
-    PatternHHalf();
-//    explicit PatternHHalf(int);
-    PatternHHalf(int);
-    PatternHHalf(const QRect &rect) : Pattern(rect) {}
-    ~PatternHHalf();
+    PatternVHalf();
+//    explicit PatternVHalf(int);
+    PatternVHalf(int);
+    PatternVHalf(const QRect &rect) : Pattern(rect) {}
+    ~PatternVHalf();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
 
@@ -29,8 +29,7 @@ protected:
     int m_fgGrayLevel;
     int m_bgGrayLevel;
 
-//    int m_halfHeight;
-    int m_halfWidth;
+    int m_halfHeight;
 };
 
-#endif // PATTERNHHALF_H
+#endif // PATTERNVHALF_H

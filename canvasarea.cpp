@@ -162,6 +162,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "HHalf";
         m_pattern = new PatternHHalf(m_screenRect.width());
         break;
+    case Pattern::VHalf:
+        qDebug() << "VHalf";
+        m_pattern = new PatternVHalf(m_screenRect.height());
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

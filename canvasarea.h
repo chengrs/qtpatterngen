@@ -14,6 +14,7 @@
 #include "PatternSubChecker.h"
 #include "PatternSubVStripe.h"
 #include "PatternHHalf.h"
+#include "PatternVHalf.h"
 
 class CanvasArea : public QWidget
 {
