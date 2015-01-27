@@ -120,14 +120,20 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_vbarAct);
     m_contextMenu->addAction(m_checkerAct);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(m_window121Act);
-    m_contextMenu->addAction(m_window111Act);
-    m_contextMenu->addAction(m_windowHalfAct);
+
+    m_windowMenu = new QMenu(tr("Window"), this);
+    m_contextMenu->addMenu(m_windowMenu);
+    m_windowMenu->addAction(m_window121Act);
+    m_windowMenu->addAction(m_window111Act);
+    m_windowMenu->addAction(m_windowHalfAct);
     m_contextMenu->addSeparator();
-    m_contextMenu->addAction(m_hStripeAct);
-    m_contextMenu->addAction(m_vStripeAct);
-    m_contextMenu->addAction(m_subCheckerAct);
-    m_contextMenu->addAction(m_subVStripeAct);
+
+    m_otherMenu = new QMenu(tr("Other"), this);
+    m_contextMenu->addMenu(m_otherMenu);
+    m_otherMenu->addAction(m_hStripeAct);
+    m_otherMenu->addAction(m_vStripeAct);
+    m_otherMenu->addAction(m_subCheckerAct);
+    m_otherMenu->addAction(m_subVStripeAct);
     m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_palleteAct);
 //    m_contextMenu->addAction(m_testAct);

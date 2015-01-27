@@ -25,6 +25,8 @@ private:
     ConfigDialog *m_dialog;
 
     QMenu *m_contextMenu;
+    QMenu *m_windowMenu;
+    QMenu *m_otherMenu;
 
     QAction *m_testAct;
     QAction *m_aboutAct;
