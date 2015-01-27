@@ -30,7 +30,8 @@ public:
         HScripe,
         VStripe,
         SubChecker,
-        SubVStripe
+        SubVStripe,
+        HHalf
     };
 
     enum PaintingLevel {

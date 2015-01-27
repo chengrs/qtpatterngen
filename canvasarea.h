@@ -13,6 +13,7 @@
 #include "PatternVStripe.h"
 #include "PatternSubChecker.h"
 #include "PatternSubVStripe.h"
+#include "PatternHHalf.h"
 
 class CanvasArea : public QWidget
 {

@@ -158,6 +158,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "SubVStripe";
         m_pattern = new PatternSubVStripe(m_screenRect);
         break;
+    case Pattern::HHalf:
+        qDebug() << "HHalf";
+        m_pattern = new PatternHHalf(m_screenRect.width());
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

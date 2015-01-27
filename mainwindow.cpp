@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(m_vStripeAct, Pattern::VStripe);
     m_patternMapper->setMapping(m_subCheckerAct, Pattern::SubChecker);
     m_patternMapper->setMapping(m_subVStripeAct, Pattern::SubVStripe);
+    m_patternMapper->setMapping(m_hHalfAct, Pattern::HHalf);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
 
@@ -107,6 +108,9 @@ void MainWindow::createActions()
 
     m_subVStripeAct = new QAction(tr("Sub-V-Stripe"), this);
     connect(m_subVStripeAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    m_hHalfAct = new QAction(tr("H-Half"), this);
+    connect(m_hHalfAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -119,6 +123,9 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_hbarAct);
     m_contextMenu->addAction(m_vbarAct);
     m_contextMenu->addAction(m_checkerAct);
+    m_contextMenu->addSeparator();
+
+    m_contextMenu->addAction(m_hHalfAct);
     m_contextMenu->addSeparator();
 
     m_windowMenu = new QMenu(tr("Window"), this);
