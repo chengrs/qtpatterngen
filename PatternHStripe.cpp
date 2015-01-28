@@ -25,40 +25,6 @@ void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &grou
 
     painter.setRenderHint(QPainter::Antialiasing, false);
 
-    QRect rect(0, 0, m_width, m_height);
-    QBrush brush(QColor(m_bgGrayLevel, m_bgGrayLevel, m_bgGrayLevel, 255));
-
-    switch (m_bgColor) {
-    case(Colors::K):
-        brush.setColor(QColor(0, 0, 0, 255));
-        break;
-    case(Colors::R):
-        brush.setColor(QColor(m_bgGrayLevel, 0, 0, 255));
-        break;
-    case(Colors::G):
-        brush.setColor(QColor(0, m_bgGrayLevel, 0, 255));
-        break;
-    case(Colors::Y):
-        brush.setColor(QColor(m_bgGrayLevel, m_bgGrayLevel, 0, 255));
-        break;
-    case(Colors::B):
-        brush.setColor(QColor(0, 0, m_bgGrayLevel, 255));
-        break;
-    case(Colors::M):
-        brush.setColor(QColor(m_bgGrayLevel, 0, m_bgGrayLevel, 255));
-        break;
-    case(Colors::A):
-        brush.setColor(QColor(0, m_bgGrayLevel, m_bgGrayLevel, 255));
-        break;
-    case(Colors::W):
-    default:
-        brush.setColor(QColor(m_bgGrayLevel, m_bgGrayLevel, m_bgGrayLevel, 255));
-        break;
-    }
-
-    painter.setBrush(brush);
-    painter.drawRect(rect);
-
     switch (m_fgColor) {
     case(Colors::K):
         painter.setPen((QColor(0, 0, 0, 255)));
@@ -88,7 +54,41 @@ void PatternHStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &grou
     }
 
     for (int i = 0; i < m_height; i++) {
-        if ((i % 2) == 1) {
+        if (!(i % 2)) {
+            painter.drawLine(0, i, m_width, i);
+        }
+    }
+
+    switch (m_bgColor) {
+    case(Colors::K):
+        painter.setPen((QColor(0, 0, 0, 255)));
+        break;
+    case(Colors::R):
+        painter.setPen((QColor(m_bgGrayLevel, 0, 0, 255)));
+        break;
+    case(Colors::G):
+        painter.setPen((QColor(0, m_bgGrayLevel, 0, 255)));
+        break;
+    case(Colors::Y):
+        painter.setPen((QColor(m_bgGrayLevel, m_bgGrayLevel, 0, 255)));
+        break;
+    case(Colors::B):
+        painter.setPen((QColor(0, 0, m_bgGrayLevel, 255)));
+        break;
+    case(Colors::M):
+        painter.setPen((QColor(m_bgGrayLevel, 0, m_bgGrayLevel, 255)));
+        break;
+    case(Colors::A):
+        painter.setPen((QColor(0, m_bgGrayLevel, m_bgGrayLevel, 255)));
+        break;
+    case(Colors::W):
+    default:
+        painter.setPen((QColor(m_bgGrayLevel, m_bgGrayLevel, m_bgGrayLevel, 255)));
+        break;
+    }
+
+    for (int i = 0; i < m_height; i++) {
+        if (i % 2) {
             painter.drawLine(0, i, m_width, i);
         }
     }

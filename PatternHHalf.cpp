@@ -20,8 +20,6 @@ PatternHHalf::~PatternHHalf()
 
 void PatternHHalf::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground, Colors::Color &color, int grayLevel)
 {
-//    qDebug() << "drawPattern()";
-
     if (ground == Pattern::ForeGround) {
         qDebug() << "Pattern::ForeGround";
         m_fgColor = color;

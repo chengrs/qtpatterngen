@@ -17,6 +17,7 @@ void PatternVBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Color
 
     QLinearGradient gradient(rect.left(), rect.height() / 2, rect.right(), rect.height() / 2);
     gradient.setColorAt(0, Qt::black);
+
     switch (color) {
     case(Colors::K):
         gradient.setColorAt(1, QColor(0, 0, 0, 255));
@@ -47,4 +48,3 @@ void PatternVBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Color
 
     painter.fillRect(rect, gradient);
 }
-

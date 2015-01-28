@@ -17,6 +17,7 @@ void PatternHBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Color
 
     QLinearGradient gradient(rect.width() / 2, rect.top(), rect.width() / 2, rect.bottom());
     gradient.setColorAt(0, Qt::black);
+
     switch (color) {
     case(Colors::K):
         gradient.setColorAt(1, QColor(0, 0, 0, 255));
