@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     PatternColorBar.cpp \
     PatternBackScan.cpp \
     PatternChessboard.cpp \
-    PatternEightColor.cpp
+    PatternEightColor.cpp \
+    PatternVBRYC.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \
@@ -52,4 +53,5 @@ HEADERS += MainWindow.h \
     PatternColorBar.h \
     PatternBackScan.h \
     PatternChessboard.h \
-    PatternEightColor.h
+    PatternEightColor.h \
+    PatternVBRYC.h

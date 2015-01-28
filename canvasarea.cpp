@@ -182,6 +182,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "EightColor";
         m_pattern = new PatternEightColor(m_screenRect);
         break;
+    case Pattern::VBRYC:
+        qDebug() << "VBRYC";
+        m_pattern = new PatternVBRYC(m_screenRect);
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

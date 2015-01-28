@@ -52,6 +52,7 @@ private:
     QAction *m_backScanAct;
     QAction *m_chessBoardAct;
     QAction *m_eightColorAct;
+    QAction *m_vBRYCAct;
 
     Colors::Color pattern;
 
