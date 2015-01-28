@@ -18,6 +18,7 @@
 #include "PatternColorBar.h"
 #include "PatternBackScan.h"
 #include "PatternChessboard.h"
+#include "PatternEightColor.h"
 
 class CanvasArea : public QWidget
 {

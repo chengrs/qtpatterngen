@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(m_colorBarAct, Pattern::ColorBar);
     m_patternMapper->setMapping(m_backScanAct, Pattern::BackScan);
     m_patternMapper->setMapping(m_chessBoardAct, Pattern::Chessboard);
+    m_patternMapper->setMapping(m_eightColorAct, Pattern::EightColor);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
 
@@ -61,6 +62,7 @@ MainWindow::~MainWindow()
     delete m_colorBarAct;
     delete m_backScanAct;
     delete m_chessBoardAct;
+    delete m_eightColorAct;
 }
 
 void MainWindow::createActions()
@@ -131,6 +133,9 @@ void MainWindow::createActions()
 
     m_chessBoardAct = new QAction(tr("Chessboard"), this);
     connect(m_chessBoardAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    m_eightColorAct = new QAction(tr("EightColor"), this);
+    connect(m_eightColorAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -150,6 +155,7 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_colorBarAct);
     m_contextMenu->addAction(m_backScanAct);
     m_contextMenu->addAction(m_chessBoardAct);
+    m_contextMenu->addAction(m_eightColorAct);
     m_contextMenu->addSeparator();
 
     m_windowMenu = new QMenu(tr("Window"), this);

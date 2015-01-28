@@ -178,6 +178,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "Chessboard";
         m_pattern = new PatternChessboard(m_screenRect);
         break;
+    case Pattern::EightColor:
+        qDebug() << "EightColor";
+        m_pattern = new PatternEightColor(m_screenRect);
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";
