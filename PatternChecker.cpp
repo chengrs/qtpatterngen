@@ -19,7 +19,6 @@ void PatternChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Co
     painter.setRenderHint(QPainter::Antialiasing, false);
 
     QRect rect(0, 0, m_width, m_height);
-//    QBrush brush(QColor(0, 0, 0, 255));
     QBrush brush(Qt::black);
 
     painter.setBrush(brush);

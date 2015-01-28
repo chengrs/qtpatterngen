@@ -15,7 +15,6 @@ void PatternColorBar::drawPattern(QPainter &painter, Pattern::PaintingLevel &, C
 {
     int height = m_height / 8;
     QRect rect(0, 0, m_width, height);
-
     QLinearGradient gradient(rect.left(), rect.height() / 2, rect.right(), rect.height() / 2);
 
     rect.setRect(0, 0, m_width, height);
