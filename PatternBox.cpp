@@ -49,8 +49,6 @@ PatternBox::~PatternBox()
 
 void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::Color &color, int grayLevel)
 {
-//    qDebug() << "drawPattern()";
-
     if (ground == Pattern::ForeGround) {
         qDebug() << "Pattern::ForeGround";
         m_fgColor = color;
@@ -138,4 +136,3 @@ void PatternBox::drawPattern(QPainter &painter, PaintingLevel &ground, Colors::C
 
     delete brush;
 }
-
