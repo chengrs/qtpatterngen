@@ -20,6 +20,13 @@ public:
     ~PatternVStripe();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
+
+protected:
+    Colors::Color m_fgColor;
+    Colors::Color m_bgColor;
+
+    int m_fgGrayLevel;
+    int m_bgGrayLevel;
 };
 
 #endif // PATTERNVSTRIPE_H
