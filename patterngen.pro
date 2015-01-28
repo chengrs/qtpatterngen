@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     PatternHHalf.cpp \
     PatternVHalf.cpp \
     PatternColorBar.cpp \
-    PatternBackScan.cpp
+    PatternBackScan.cpp \
+    PatternChessboard.cpp
 
 HEADERS += MainWindow.h \
         CanvasArea.h \
@@ -48,4 +49,5 @@ HEADERS += MainWindow.h \
     PatternHHalf.h \
     PatternVHalf.h \
     PatternColorBar.h \
-    PatternBackScan.h
+    PatternBackScan.h \
+    PatternChessboard.h

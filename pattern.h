@@ -34,7 +34,8 @@ public:
         HHalf,
         VHalf,
         ColorBar,
-        BackScan
+        BackScan,
+        Chessboard
     };
 
     enum PaintingLevel {

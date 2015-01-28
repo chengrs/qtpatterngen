@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(m_vHalfAct, Pattern::VHalf);
     m_patternMapper->setMapping(m_colorBarAct, Pattern::ColorBar);
     m_patternMapper->setMapping(m_backScanAct, Pattern::BackScan);
+    m_patternMapper->setMapping(m_chessBoardAct, Pattern::Chessboard);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
 
@@ -59,6 +60,7 @@ MainWindow::~MainWindow()
     delete m_vHalfAct;
     delete m_colorBarAct;
     delete m_backScanAct;
+    delete m_chessBoardAct;
 }
 
 void MainWindow::createActions()
@@ -126,6 +128,9 @@ void MainWindow::createActions()
 
     m_backScanAct = new QAction(tr("Back Scan"), this);
     connect(m_backScanAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    m_chessBoardAct = new QAction(tr("Chessboard"), this);
+    connect(m_chessBoardAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -144,6 +149,7 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_vHalfAct);
     m_contextMenu->addAction(m_colorBarAct);
     m_contextMenu->addAction(m_backScanAct);
+    m_contextMenu->addAction(m_chessBoardAct);
     m_contextMenu->addSeparator();
 
     m_windowMenu = new QMenu(tr("Window"), this);

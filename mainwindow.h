@@ -50,6 +50,7 @@ private:
     QAction *m_vHalfAct;
     QAction *m_colorBarAct;
     QAction *m_backScanAct;
+    QAction *m_chessBoardAct;
 
     Colors::Color pattern;
 
