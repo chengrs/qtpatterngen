@@ -20,6 +20,7 @@
 #include "PatternChessboard.h"
 #include "PatternEightColor.h"
 #include "PatternVBRYC.h"
+#include "PatternFlicker.h"
 
 class CanvasArea : public QWidget
 {

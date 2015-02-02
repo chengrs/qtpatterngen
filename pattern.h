@@ -37,7 +37,8 @@ public:
         BackScan,
         Chessboard,
         EightColor,
-        VBRYC
+        VBRYC,
+        Flicker
     };
 
     enum PaintingLevel {

@@ -186,6 +186,10 @@ void CanvasArea::changePattern(int pattern)
         qDebug() << "VBRYC";
         m_pattern = new PatternVBRYC(m_screenRect);
         break;
+    case Pattern::Flicker:
+        qDebug() << "Flicker";
+        m_pattern = new PatternFlicker(m_screenRect);
+        break;
     case Pattern::Color:
     default:
         qDebug() << "Color";

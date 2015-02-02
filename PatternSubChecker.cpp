@@ -11,7 +11,7 @@ PatternSubChecker::~PatternSubChecker()
 
 }
 
-void PatternSubChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
+void PatternSubChecker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &, int grayLevel)
 {
     painter.setRenderHint(QPainter::Antialiasing, false);
 

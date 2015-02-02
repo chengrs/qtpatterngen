@@ -1,17 +1,17 @@
 #include <QLinearGradient>
-#include "PatternSubVStripe.h"
+#include "PatternFlicker.h"
 
-PatternSubVStripe::PatternSubVStripe()
+PatternFlicker::PatternFlicker()
 {
 
 }
 
-PatternSubVStripe::~PatternSubVStripe()
+PatternFlicker::~PatternFlicker()
 {
 
 }
 
-void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &, int grayLevel)
+void PatternFlicker::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &, int grayLevel)
 {
     painter.setRenderHint(QPainter::Antialiasing, false);
 
@@ -24,7 +24,7 @@ void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &,
     painter.setPen(QColor(grayLevel, 0, grayLevel, 255));
 
     for (int i = 0; i < m_width; i++) {
-        if ((i % 2) == 1) {
+        if ((i % 2) == 0) {
             painter.drawLine(i, 0, i, m_height);
         }
     }
@@ -32,9 +32,8 @@ void PatternSubVStripe::drawPattern(QPainter &painter, Pattern::PaintingLevel &,
     painter.setPen((QColor(0, grayLevel, 0, 255)));
 
     for (int i = 0; i < m_width; i++) {
-        if ((i % 2) == 0) {
+        if ((i % 2) == 1) {
             painter.drawLine(i, 0, i, m_height);
         }
     }
 }
-

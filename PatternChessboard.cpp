@@ -11,7 +11,7 @@ PatternChessboard::~PatternChessboard()
 
 }
 
-void PatternChessboard::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int)
+void PatternChessboard::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &, int)
 {
     int edgeLength = 40;
 

@@ -10,7 +10,7 @@ PatternColor::~PatternColor()
 
 }
 
-void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &ground, Colors::Color &color, int grayLevel)
+void PatternColor::drawPattern(QPainter &painter, Pattern::PaintingLevel &, Colors::Color &color, int grayLevel)
 {
     QRect rect(0, 0, m_width, m_height);
 
