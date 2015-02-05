@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_patternMapper->setMapping(m_eightColorAct, Pattern::EightColor);
     m_patternMapper->setMapping(m_vBRYCAct, Pattern::VBRYC);
     m_patternMapper->setMapping(m_flickerAct, Pattern::Flicker);
+    m_patternMapper->setMapping(m_hYCBRBRYCAct, Pattern::HYCBRBRYC);
 
     connect(m_patternMapper, SIGNAL(mapped(int)), this->m_canvasArea, SLOT(changePattern(int)));
 
@@ -67,6 +68,7 @@ MainWindow::~MainWindow()
     delete m_eightColorAct;
     delete m_vBRYCAct;
     delete m_flickerAct;
+    delete m_hYCBRBRYCAct;
 }
 
 void MainWindow::createActions()
@@ -146,6 +148,9 @@ void MainWindow::createActions()
 
     m_flickerAct = new QAction(tr("Flicker"), this);
     connect(m_flickerAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
+
+    m_hYCBRBRYCAct = new QAction(tr("YCBR/BRYC"), this);
+    connect(m_hYCBRBRYCAct, SIGNAL(triggered()), m_patternMapper, SLOT(map()));
 }
 
 void MainWindow::createMenus()
@@ -168,6 +173,7 @@ void MainWindow::createMenus()
     m_contextMenu->addAction(m_eightColorAct);
     m_contextMenu->addAction(m_vBRYCAct);
     m_contextMenu->addAction(m_flickerAct);
+    m_contextMenu->addAction(m_hYCBRBRYCAct);
     m_contextMenu->addSeparator();
 
     m_windowMenu = new QMenu(tr("Window"), this);

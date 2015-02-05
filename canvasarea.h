@@ -21,6 +21,7 @@
 #include "PatternEightColor.h"
 #include "PatternVBRYC.h"
 #include "PatternFlicker.h"
+#include "PatternHYCBRBRYC.h"
 
 class CanvasArea : public QWidget
 {

@@ -54,6 +54,7 @@ private:
     QAction *m_eightColorAct;
     QAction *m_vBRYCAct;
     QAction *m_flickerAct;
+    QAction *m_hYCBRBRYCAct;
 
     Colors::Color pattern;
 

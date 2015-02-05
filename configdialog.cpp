@@ -81,11 +81,11 @@ ConfigDialog::ConfigDialog(QWidget *parent)
 
     m_groundMapper = new QSignalMapper(this);
 
-    fgRadio = new QRadioButton(tr("&FG"));
+    fgRadio = new QRadioButton(tr("&FG/Color A"));
     fgRadio->setCheckable(true);
     connect(fgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
 
-    bgRadio = new QRadioButton(tr("&BG"));
+    bgRadio = new QRadioButton(tr("&BG/Color B"));
     bgRadio->setCheckable(true);
     connect(bgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
 

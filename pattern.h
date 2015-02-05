@@ -38,7 +38,8 @@ public:
         Chessboard,
         EightColor,
         VBRYC,
-        Flicker
+        Flicker,
+        HYCBRBRYC
     };
 
     enum PaintingLevel {
