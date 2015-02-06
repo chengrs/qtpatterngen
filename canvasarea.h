@@ -34,6 +34,7 @@ public:
     void setGrayLevel(int);
     void setFgColor(const Colors::Color &);
     void setBgColor(const Colors::Color &);
+    int getPatternIndex();
 
     Pattern::PaintingLevel getCurrentGround();
 
@@ -41,9 +42,13 @@ public slots:
     void setCurrentGround(int);
 
 protected:
+
     void paintEvent(QPaintEvent *event);
 
 private:
+    QWidget *m_parent;
+
+    int m_patternIndex;
     QRect m_screenRect;
     int m_grayLevel;
     Colors::Color m_fgColor;

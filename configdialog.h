@@ -20,6 +20,13 @@ public:
     ConfigDialog(QWidget *parent = 0);
     ~ConfigDialog();
 
+//    void setValue(int);
+
+protected:
+    QWidget *m_parent;
+
+    void showEvent(QShowEvent *event);
+
 private:
     QSignalMapper *m_colorMapper;
     QSignalMapper *m_groundMapper;

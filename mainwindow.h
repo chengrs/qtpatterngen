@@ -15,6 +15,7 @@ public:
     ~MainWindow();
 
     CanvasArea *m_canvasArea;
+    ConfigDialog *m_dialog;
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event);
@@ -22,7 +23,6 @@ protected:
 private:
     QSignalMapper *m_patternMapper;
 
-    ConfigDialog *m_dialog;
 
     QMenu *m_contextMenu;
     QMenu *m_windowMenu;

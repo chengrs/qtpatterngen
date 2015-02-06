@@ -4,7 +4,8 @@
 ConfigDialog::ConfigDialog(QWidget *parent)
     : QDialog(parent)
 {
-//    qDebug() << "constructor";
+    qDebug() << "ConfigDialog()";
+    m_parent = parent;
 
     hintLabel = new QLabel(tr("← Cursor →"));
     zeroLabel = new QLabel(tr("0"));
@@ -18,6 +19,8 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     grayLevelSpinBox->setRange(0, 255);
     connect(grayLevelSlider, SIGNAL(valueChanged(int)), grayLevelSpinBox, SLOT(setValue(int)));
     connect(grayLevelSpinBox, SIGNAL(valueChanged(int)), grayLevelSlider, SLOT(setValue(int)));
+
+//    connect(this, SIGNAL(setValue(int)), grayLevelSlider, SLOT(setValue(int)));
 
     // set initial value
     grayLevelSlider->setValue(255);
@@ -77,15 +80,15 @@ ConfigDialog::ConfigDialog(QWidget *parent)
     colorButtonBox->addButton(aButton, QDialogButtonBox::ActionRole);
     colorButtonBox->addButton(wButton, QDialogButtonBox::ActionRole);
 
-    groupBox = new QGroupBox(tr("Foreground or Background"));
+    groupBox = new QGroupBox(tr("Parameters select"));
 
     m_groundMapper = new QSignalMapper(this);
 
-    fgRadio = new QRadioButton(tr("&FG/Color A"));
+    fgRadio = new QRadioButton(tr("&FG"));
     fgRadio->setCheckable(true);
     connect(fgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
 
-    bgRadio = new QRadioButton(tr("&BG/Color B"));
+    bgRadio = new QRadioButton(tr("&BG"));
     bgRadio->setCheckable(true);
     connect(bgRadio, SIGNAL(clicked()), m_groundMapper, SLOT(map()));
 
@@ -121,3 +124,40 @@ ConfigDialog::~ConfigDialog()
 {
 
 }
+
+void ConfigDialog::showEvent(QShowEvent *)
+{
+    qDebug() << "showEvent()";
+
+    // TODO according to each pattern, define which dialog element could be disabled
+    fgRadio->setEnabled(true);
+    bgRadio->setEnabled(true);
+
+    int patternIndex = ((MainWindow *) m_parent)->m_canvasArea->getPatternIndex();
+
+    switch(patternIndex) {
+    case Pattern::Color:
+        fgRadio->setEnabled(false);
+        bgRadio->setEnabled(false);
+        break;
+    case Pattern::Chessboard:
+        fgRadio->setText("Height");
+        bgRadio->setText("Width");
+        break;
+    case Pattern::Window111:
+    case Pattern::Window121:
+    case Pattern::WindowHalf:
+        fgRadio->setText("FG");
+        bgRadio->setText("BG");
+        break;
+    default:
+        fgRadio->setText("Color A");
+        bgRadio->setText("Color B");
+        break;
+    }
+}
+
+//void ConfigDialog::setValue(int value)
+//{
+//    grayLevelSpinBox->setValue(value);
+//}

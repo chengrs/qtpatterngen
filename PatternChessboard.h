@@ -1,6 +1,8 @@
 #ifndef PATTERNCHESSBOARD_H
 #define PATTERNCHESSBOARD_H
 
+#define DEFAULT_EDGE_LENGTH 40
+
 #include <QtWidgets>
 #include "Pattern.h"
 #include "Colors.h"
@@ -16,17 +18,15 @@ class PatternChessboard : public Pattern
 public:
     PatternChessboard();
     PatternChessboard(int height, int width) : Pattern(height, width) {}
-    PatternChessboard(const QRect &rect) : Pattern(rect) {}
+//    PatternChessboard(const QRect &rect) : Pattern(rect) {}
+    PatternChessboard(const QRect &rect);
     ~PatternChessboard();
 
     void drawPattern(QPainter &, Pattern::PaintingLevel &, Colors::Color &, int);
 
 protected:
-    Colors::Color m_fgColor;
-    Colors::Color m_bgColor;
-
-    int m_fgGrayLevel;
-    int m_bgGrayLevel;
+    int m_edgeHeight;
+    int m_edgeWidth;
 };
 
 #endif // PATTERNCHESSBOARD_H

@@ -1,8 +1,11 @@
 #include "CanvasArea.h"
+//#include "MainWindow.h"
 
 CanvasArea::CanvasArea(QWidget *parent)
     : QWidget(parent)
 {
+    m_parent = parent;
+
     m_grayLevel = 255;
     m_fgColor = Colors::G;
     m_bgColor = Colors::W;
@@ -12,9 +15,6 @@ CanvasArea::CanvasArea(QWidget *parent)
 
     m_screenRect = QApplication::desktop()->screenGeometry();
     update(m_screenRect);
-
-//    qDebug() << "height" << m_screenRect.height();
-//    qDebug() << "width" << m_screenRect.width();
 }
 
 CanvasArea::~CanvasArea()
@@ -28,7 +28,7 @@ void CanvasArea::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
-    // XXX super ugly code
+    // super ugly code
     if (m_ground == Pattern::ForeGround) {
         m_pattern->drawPattern(painter, m_ground, m_fgColor, m_grayLevel);
     } else {
@@ -56,6 +56,11 @@ void CanvasArea::setBgColor(const Colors::Color &c)
     m_bgColor = c;
 
     update(m_screenRect);
+}
+
+int CanvasArea::getPatternIndex()
+{
+    return m_patternIndex;
 }
 
 Pattern::PaintingLevel CanvasArea::getCurrentGround()
@@ -106,6 +111,7 @@ void CanvasArea::changeColor(int color)
 void CanvasArea::changePattern(int pattern)
 {
 //    qDebug() << "changePattern()";
+    m_patternIndex = pattern;
 
     if (m_pattern != NULL) {
         delete m_pattern;
@@ -126,21 +132,15 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::Window111:
         qDebug() << "Window111";
-        m_pattern = new PatternBox(PatternBox::Window111, m_screenRect.height(), m_screenRect.width());
-        // TODO something wrong with the constructor blow, use it instead of upper one
-//        m_pattern = new PatternBox(PatternBox::Window111, m_screenRect);
+        m_pattern = new PatternBox(PatternBox::Window111, m_screenRect);
         break;
     case Pattern::Window121:
         qDebug() << "Window121";
-        m_pattern = new PatternBox(PatternBox::Window121, m_screenRect.height(), m_screenRect.width());
-        // TODO something wrong with the constructor blow, use it instead of upper one
-//        m_pattern = new PatternBox(PatternBox::Window121, m_screenRect);
+        m_pattern = new PatternBox(PatternBox::Window121, m_screenRect);
         break;
     case Pattern::WindowHalf:
         qDebug() << "WindowHalf";
-        m_pattern = new PatternBox(PatternBox::WindowHalf, m_screenRect.height(), m_screenRect.width());
-        // TODO something wrong with the constructor blow, use it instead of upper one
-//        m_pattern = new PatternBox(PatternBox::WindowHalf, m_screenRect);
+        m_pattern = new PatternBox(PatternBox::WindowHalf, m_screenRect);
         break;
     case Pattern::HScripe:
         qDebug() << "HScripe";
@@ -176,6 +176,10 @@ void CanvasArea::changePattern(int pattern)
         break;
     case Pattern::Chessboard:
         qDebug() << "Chessboard";
+        // TODO something wrong with the code blow
+//        ((MainWindow *) m_parent)->m_dialog->setValue(40);
+        // XXX not a good implementation
+        setGrayLevel(40);
         m_pattern = new PatternChessboard(m_screenRect);
         break;
     case Pattern::EightColor:
@@ -207,10 +211,6 @@ void CanvasArea::changePattern(int pattern)
 void CanvasArea::setCurrentGround(int ground)
 {
     qDebug() << "setCurrentGround()";
-    // XXX ugly
-    if (ground == Pattern::BackGround) {
-        m_ground = Pattern::BackGround;
-    } else {
-        m_ground = Pattern::ForeGround;
-    }
+
+    m_ground = Pattern::PaintingLevel(ground);
 }

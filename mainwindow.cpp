@@ -155,6 +155,8 @@ void MainWindow::createActions()
 
 void MainWindow::createMenus()
 {
+//    qDebug() << "createMenus()";
+
     // init context menu
     m_contextMenu = new QMenu(this);
     m_contextMenu->addAction(m_aboutAct);
@@ -167,9 +169,12 @@ void MainWindow::createMenus()
 
     m_contextMenu->addAction(m_hHalfAct);
     m_contextMenu->addAction(m_vHalfAct);
+    m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_colorBarAct);
     m_contextMenu->addAction(m_backScanAct);
+    m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_chessBoardAct);
+    m_contextMenu->addSeparator();
     m_contextMenu->addAction(m_eightColorAct);
     m_contextMenu->addAction(m_vBRYCAct);
     m_contextMenu->addAction(m_flickerAct);
@@ -200,7 +205,7 @@ void MainWindow::about()
 {
     QMessageBox::about(this, tr("About PatternGen"),
             tr("<p>This <b>Program</b> is developed by AUOOO</p> "
-               "<p>NO rights reserved.</p>"
+               "<p>NO Rights Reserved.</p>"
                "<p>Thank you!</p>"));
 }
 

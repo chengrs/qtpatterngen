@@ -34,10 +34,42 @@ PatternBox::PatternBox(int type, int m_height, int m_width)
     }
 }
 
-// TODO something wrong here
 PatternBox::PatternBox(int type, const QRect &screenRect)
 {
-    PatternBox(type, screenRect.height(), screenRect.width());
+    qDebug() << "height = " << screenRect.height();
+    qDebug() << "width = " << screenRect.width();
+
+    m_height = screenRect.height();
+    m_width = screenRect.width();
+
+    m_fgColor = Colors::W;
+    m_bgColor = Colors::W;
+
+    m_fgGrayLevel = 255;
+    m_bgGrayLevel = 255;
+
+    switch (type) {
+    case Window111:
+        m_innerWidth = m_width / 3;
+        m_innerHeight = m_height / 3;
+        m_innerTopLeftX = m_width / 3;
+        m_innerTopLeftY = m_height / 3;
+        break;
+    case Window121:
+        m_innerWidth = m_width / 2;
+        m_innerHeight = m_height / 2;
+        m_innerTopLeftX = m_width / 4;
+        m_innerTopLeftY = m_height / 4;
+        break;
+    case WindowHalf:
+        m_innerWidth = m_width / qSqrt(2);
+        m_innerHeight = m_height / qSqrt(2);
+        qDebug() << "m_innerWidth = " << m_innerWidth;
+        qDebug() << "m_innerHeight = " << m_innerHeight;
+        m_innerTopLeftX = (m_width - m_innerWidth) / 2;
+        m_innerTopLeftY = (m_height - m_innerHeight) / 2;
+        break;
+    }
 
     m_screenRect = screenRect;
 }
